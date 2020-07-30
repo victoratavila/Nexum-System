@@ -1,0 +1,53 @@
+<%- include('../partials/header.ejs'); %>
+<%- include('../partials/navbar.ejs'); %>
+
+<body style="font-family: gotham;">
+<div class = "container">
+
+<br><h2 style="text-align: center; font-family: gotham;"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-person-dash-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  <path fill-rule="evenodd" d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm5-.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5z"/>
+</svg> Deletar registros</h2><hr><br>
+<form action="/people/delete" method="post" style="width: 500px" id = "formulario" onsubmit="confirmDelete(event, this)"> <br><br>
+<input autofocus class="form-control" required type="text" name="id" id="id" style = "font-size: 30px; margin-left: 320px; text-align: center;" placeholder="Informe o ID"><br>
+<button class = "btn btn-danger" type="submit"  style="margin-left: 320px; width: 500px; height: 50px; font-size: 22px;">Deletar</button><br>
+<a class = "btn btn-dark" href="/" style=" margin-left: 320px; width: 500px; height: 50px; font-size: 22px; margin-top: 5px;">Voltar</a>
+</form>
+</div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">ATENÇÃO:</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+         Tem certeza que quer deletar esse registro? <br> <p style = " font-family: Gotham light ">Essa ação não poderá ser desfeita.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+          <button type="button" class="btn btn-danger" id = "btnDelete">Deletar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+<%- include('../partials/footer.ejs'); %>
+
+<script>
+
+function confirmDelete(event, form){
+    event.preventDefault();
+    $('#exampleModal').modal('show');
+
+    $('#btnDelete').click( () => {
+    console.log('Botão clicado');
+    form.submit();
+    })
+}
+
+</script>

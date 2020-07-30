@@ -1,0 +1,1 @@
+Nexum Project aims to support and make easier the process of receiving immigrants from war zones or from any other region who need and deserve to have acess to basic resources in a new nation, for exemple: job oportunity, habitation access, food, safety and education.

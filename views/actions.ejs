@@ -1,0 +1,30 @@
+<%- include('../partials/header.ejs'); %>
+<%- include('../partials/navbar.ejs'); %>
+<body style="font-family: gotham;">
+
+<%- include('../partials/modal.ejs'); %>
+
+<div id = "mainBG">
+
+<form id = "formNews"><br><br><br>
+  <h1 style="margin-left: 450px; margin-top: -100px; width: 510px; font-size: 50px;">Bem vindo ao Nexum.</h1>
+  <a class = "btn btn-light" onclick="modalON()" style="font-size: 30px; width: 400px; margin-left: 450px;">Veja as novidades</a>
+</form>
+
+</div>
+
+<form style="margin-top: -480px; margin-left: 880px;">
+  <a href="/people/list" class="btn btn-primary" style="width: 400px; font-size: 30px; margin-left: -60px;">Lista de imigrantes</a>
+  <a href="/form/create/people"  class="btn btn-primary" style="width: 400px; font-size: 30px; margin-left: -60px; margin-top: 20px;">Registrar imigrantes</a>
+  <a href="/search/id" class="btn btn-primary" style="width: 400px; font-size: 30px; margin-left: -60px; margin-top: 20px;">Buscar por ID</a>
+  <a href="/people/form/edit" class="btn btn-primary" style="width: 400px; font-size: 30px; margin-left: -60px; margin-top: 20px;">Editar registros</a>
+  <a href="/people/form/delete"  class="btn btn-outline-danger" style="width: 400px; font-size: 30px; margin-left: -60px; margin-top: 20px;">Deletar registros</a>
+</form>
+
+<script>
+  function modalON(){
+    $('#staticBackdrop').modal('show')
+  }
+</script>
+</body>
+<%- include('../partials/footer.ejs'); %>

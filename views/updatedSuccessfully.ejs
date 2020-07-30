@@ -1,0 +1,31 @@
+<%- include('../partials/header.ejs'); %>
+<%- include('../partials/navbar.ejs'); %>
+
+<body style="font-family: gotham;"> <br><br><br>
+
+<br><br><br><br>
+<div class = "container"><br>
+
+    <div class="alert alert-light" role="alert" style="font-family: Gotham light">
+        <h1 class="alert-heading" style="text-align: center;">Sucesso <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-check2" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
+          </svg></h1>
+        <h4 style="font-family: gotham light; text-align: center;">O registro de imigrante correspondente ao ID <%=id%> foi atualizado com sucesso.</h4>
+        <hr>
+      </div>
+
+
+</div>
+<br><br><br><br>
+<a style="margin-left: 430px; width: 500px; font-family: Gotham light; font-size: 20px; text-align: center; margin-bottom: 05px;"  class = "btn btn-success" href="/people/form/edit" style="margin-left: 600; width: 500px; height: 50px; font-size: 25px;">
+  Editar mais registros</a>
+<a style="margin-left: 430px; width: 500px; font-family: Gotham light; font-size: 20px; text-align: center;"  class = "btn btn-dark" href="/" style="margin-left: 600; width: 500px; height: 50px; font-size: 25px;">
+Página inicial</a>
+</div>
+  
+
+
+
+
+</body>
+<%- include('../partials/footer.ejs'); %>

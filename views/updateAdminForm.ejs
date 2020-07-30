@@ -1,0 +1,37 @@
+<%- include('../partials/header.ejs'); %>
+<%- include('../partials/navbar.ejs'); %>
+
+<body style="font-family: gotham;">
+    
+<div class = "container">
+<br>
+<h4 style="text-align: center; margin-left: -60px;">Atualizar perfil de administrador </h4><br>
+<div style="font-family: Gotham light;">
+
+    <div class="card mb-8" style="max-width: 100%; height: 520px">
+        <div class="row no-gutters" style="margin-left: 300px;">
+          <div class="col-md-8">
+            <div class="card-body" style="margin-right: 100px;">
+                <form action="/admin/form/save" method="POST" style="width: 500px; font-size: 20px;">
+                <label for="campoNome">Nome: </label>
+                <input type="text" name = "campoNome" id = "campoNome" class = "card-text form-control"  value=" <%=sessao.firstName%> " style="font-size: 18px;">
+                <label for="campoSobrenome" style="margin-top: 10px;">Sobrenome: </label>
+                <input type="text" name = "campoSobrenome" id = "campoSobrenome" class = "card-text form-control"  value="  <%=sessao.lastName%>" style="font-size: 18px;">
+              <label for="campoEmail" style="margin-top: 10px;">Email: </label>
+             <input type="text" name = "campoEmail" id = "campoEmail" class = "card-text form-control"  value=" <%=sessao.email%>" style="font-size: 18px;">
+             <label for="campoSenha" style="margin-top: 10px;">Senha: </label>
+             <input type="password" name = "campoSenha" id = "campoSenha" class = "card-text form-control"  value=" <%=adminData.password%>" style="font-size: 18px;" > 
+             <label for="campoID" style="margin-top: 10px;">Nexum ID: </label>
+             <input type="text" name = "campoID" id = "campoID" class = "card-text form-control" disabled value=" <%=sessao.id%>" style="font-size: 18px;" > <br>
+             <button type="submit" class="btn btn-primary"  style="font-size: 20px; color: white; width: 500px; margin-top: -30px;" >Atualizar</button> <br>
+            </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+</div>
+
+</div>
+
+<%- include('../partials/footer.ejs'); %>
