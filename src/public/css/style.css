@@ -1,0 +1,48 @@
+
+
+form {
+font-size: 30px;
+width: 50px;
+font-family: Gotham light;
+}
+
+h2 {
+text-align: center;
+}
+
+#formLogin {
+    font-size: 55px;
+    width: 600px;
+    margin-left: 250px;
+    margin-top: 85px;
+
+}
+
+#userLogged {
+    margin-left: 810px;
+}
+
+#mainBG {
+    background-color: chartreuse;
+    height: 600px;
+    width: 1100px;
+    transform: skew(-15deg); /* Padrão */
+    margin-left: -450px;
+}
+
+#formNews {
+    transform: skew(15deg);
+    width: 300px;
+    font-size: 60px;
+    font-family: Gotham;
+    margin-left: 50px;
+}
+
+#formActions {
+    transform: skew(15deg);
+    font-size: 70px;
+    font-family: Gotham;
+    width: 300px;
+    margin-top: -440px;
+    margin-left: 1200px;
+}
