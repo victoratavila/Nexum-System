@@ -4,30 +4,35 @@ const Sequelize = require('sequelize');
 //Importing the database connection
 const connection = require('../database/connection');
 
-const Admin = connection.define('admin', {
+const Job = connection.define('job', {
 
-firstName: {
+company: {
     type: Sequelize.STRING,
     allowNull: false
 },
 
-lastName: {
+role: {
     type: Sequelize.STRING,
     allowNull: false
 },
 
-email: {
+level: {
     type: Sequelize.STRING,
     allowNull: false
 },
 
-password: {
+city: {
+    type: Sequelize.STRING,
+    allowNull: false
+},
+
+pwd_exclusive: {
     type: Sequelize.STRING,
     allowNull: false
 }
 
 });
 
-Admin.sync({force: false});
+Job.sync({force: false});
 
-module.exports = Admin;
+module.exports = Job;
