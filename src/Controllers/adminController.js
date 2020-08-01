@@ -17,12 +17,14 @@ router.post('/create/admin', (req, res) => {
 
     var firstName = req.body.firstName;
     var lastName = req.body.lastName;
+    var gender = req.body.gender;
     var email = req.body.email;
     var password = req.body.password;
 
     Admin.create({
         firstName: firstName,
         lastName: lastName,
+        gender: gender,
         email: email,
         password: password
 
@@ -48,6 +50,7 @@ router.post('/admin/update', (req, res) => {
     var email = req.body.email;
     var newFirstName = req.body.newFirstName;
     var newLastName = req.body.newLastName;
+    var gender = req.body.gender;
     var newPassword = req.body.newPassword;
 
 
@@ -55,7 +58,8 @@ router.post('/admin/update', (req, res) => {
         
         firstName: newFirstName,
         lastName: newLastName,
-        password: newPassword
+        password: newPassword,
+        gender: gender
 
     }, {
         where: {
@@ -83,7 +87,8 @@ router.post('/admin/form/save', (req, res) => {
     var lastName = req.body.campoSobrenome;
     var email = req.body.campoEmail;
     var password = req.session.admin.password;
-    var id = req.session.admin.id
+    var id = req.session.admin.id;
+    var gender = req.body.gender;
 
    Admin.findOne({
        where: {
@@ -94,6 +99,7 @@ router.post('/admin/form/save', (req, res) => {
     Admin.update({
         firstName: firstName,
         lastName: lastName,
+        gender: gender,
         email: email,
         password: password
     }, {
@@ -146,6 +152,7 @@ router.post('/admin/delete', (req, res) => {
 
 router.get('/list/admin', (req, res) => {
     Admin.findAll().then((admins) => {
+
         res.json({admins});
     }).catch((err) => {
         console.log(err);

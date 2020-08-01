@@ -26,6 +26,7 @@ router.post('/authenticate', (req, res) => {
             firstName: admin.firstName,
             password: admin.password,
             lastName: admin.lastName,
+            gender: admin.gender,
             email: admin.email,
             updatedAt: moment(admin.updatedAt,'YYYY-MM-DD').format('DD/MM/YYYY'),
             id: admin.id

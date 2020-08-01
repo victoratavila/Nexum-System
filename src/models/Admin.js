@@ -16,6 +16,11 @@ lastName: {
     allowNull: false
 },
 
+gender: {
+    type: Sequelize.STRING,
+    allowNull: false
+},
+
 email: {
     type: Sequelize.STRING,
     allowNull: false
