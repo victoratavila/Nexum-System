@@ -5,9 +5,11 @@ const PeopleController = require('./Controllers/PeopleController');
 const loginController = require('./Controllers/loginController');
 const adminController = require('./Controllers/adminController');
 const jobController = require('./Controllers/jobController');
+const educationController = require('./Controllers/educationController');
 const session = require('express-session');
 const Admin = require('./models/Admin');
 const Job = require('./models/Job');
+const Education = require('./models/Education');
 const path = require('path');
 
 // Authenticating database connection  ----------
@@ -47,6 +49,8 @@ app.use('/', PeopleController );
 app.use('/', loginController);
 app.use('/', adminController);
 app.use('/', jobController);
+app.use('/', educationController);
+
 
 // Server listener ------------------------------
 
