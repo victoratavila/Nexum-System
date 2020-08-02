@@ -4,7 +4,7 @@ const Education = require('../models/Education');
 const moment = require('moment');
 const adminAuth = require('../middlewares/adminAuth');
 
-router.post('/create/education', adminAuth, (req, res) => {
+router.post('/create/education', (req, res) => {
 
     var institutionName = req.body.institutionName;
     var offeredCourse = req.body.offeredCourse;
