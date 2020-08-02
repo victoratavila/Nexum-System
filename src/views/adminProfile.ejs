@@ -12,8 +12,10 @@
           <div class="col-md-3">
           <img src= <% if(sessao.gender == "Masculino"){ %>
             <%= '/img/user.png' %>
+         <% } if(sessao.gender == "Feminino") { %>
+            <%= '/img/userPink.png' %>
          <% } else { %>
-          <%= '/img/userPink.png' %>
+            <%= '/img/userGreen.png' %>
          <% } %> class="card-img" alt="..." style="border-radius: 30px; height: 220px; width: 220px;margin-top: 90px; margin-left: -30px;">
           </div>
           <div class="col-md-8">
