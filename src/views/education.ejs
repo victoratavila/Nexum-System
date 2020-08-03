@@ -29,8 +29,8 @@
 <h5 style="font-family: gotham light; font-weight: 600;">Instituição: <%= education.institutionName %></h5>
 <h5 style="font-family: gotham light; font-weight: 600;">Forma de ingresso: <%= education.joinMethod %> </h5>
 <h5 style="font-family: gotham light; font-weight: 600;">Vagas: <%= education.vacancy %> </h5>
-<h5 style="font-family: gotham light; font-weight: 600;">Localização: <%= education.country %> | <%= education.city %>  </h5>
-<p class="card-text"><small class="text-muted" style="font-family: gotham light;">Oportunidade publicada em: <%= moment(education.createdAt,'YYYY-MM-DD').format('DD/MM/YYYY'); %> </small></p>
+<h5 style="font-family: gotham light; font-weight: 600;">Localização: <%= education.country %> | <%= education.city %> (<%= education.state %>)  </h5>
+<p class="card-text"><small class="text-muted" style="font-family: gotham light;">Oportunidade publicada em: <%= moment(education.createdAt,'YYYY-MM-DD').format('DD/MM/YYYY'); %> | <%= moment(education.updatedAt).locale('PT').format('LT'); %> </small></p>
 </div>
 <p class="card-text"><small class="text-muted"></small></p>
 </div>

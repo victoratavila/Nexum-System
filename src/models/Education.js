@@ -34,7 +34,13 @@ country: {
 city: {
     type: Sequelize.STRING,
     allowNull: false
+},
+
+state: {
+    type: Sequelize.STRING,
+    allowNull: false
 }
+
 })
 
 Education.sync({force: false});

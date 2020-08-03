@@ -26,6 +26,16 @@ city: {
     allowNull: false
 },
 
+state: {
+    type: Sequelize.STRING,
+    allowNull: false
+},
+
+country: {
+    type: Sequelize.STRING,
+    allowNull: false
+},
+
 pwd_exclusive: {
     type: Sequelize.STRING,
     allowNull: false

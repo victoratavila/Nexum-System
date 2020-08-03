@@ -12,6 +12,8 @@ router.post('/create/job', (req, res) => {
     var role = req.body.role;
     var level = req.body.level;
     var city = req.body.city;
+    var state = req.body.state;
+    var country = req.body.country;
     var pwd_exclusive = req.body.pwd_exclusive;
 
     Job.create({
@@ -19,6 +21,8 @@ router.post('/create/job', (req, res) => {
         role: role,
         level: level,
         city: city,
+        state: state,
+        country: country,
         pwd_exclusive: pwd_exclusive
 
     }).then( () => {

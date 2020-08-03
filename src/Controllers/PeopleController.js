@@ -93,7 +93,7 @@ return res.json({result});
 // ----------------------------------------------------------------------------------
 
 //Delete person/people
-router.post('/people/delete', (req, res) => {
+router.post('/people/delete', adminAuth, (req, res) => {
 var id = req.body.id;
 
 People.destroy({
@@ -150,7 +150,7 @@ res.render('deletePeopleForm', {sessao: req.session.admin});
 
 // ----------------------------------------------------------------------------------
 
-router.get('/people/form/edit', adminAuth, (req, res) => {
+router.get('/people/form/edit', (req, res) => {
 var id = req.body.id;
 
 res.render('editPeopleForm', {id: req.body.id, sessao: req.session.admin});

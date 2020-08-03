@@ -29,9 +29,9 @@
 <h1> <%=job.role %> </h1>
 <h5 style="font-family: gotham light; font-weight: 600;">Empresa: <%= job.company %></h5>
 <h5 style="font-family: gotham light; font-weight: 600;">Nível: <%= job.level %> </h5>
-<h5 style="font-family: gotham light; font-weight: 600;">Cidade: <%= job.city %> </h5>
+<h5 style="font-family: gotham light; font-weight: 600;">Localização: <%= job.country %> | <%= job.city %> (<%=job.state%>) </h5>
 <h5 style="font-family: gotham light; font-weight: 600;">Exclusivo para PCD: <%= job.pwd_exclusive %> </h5>
-<p class="card-text"><small class="text-muted" style="font-family: gotham light;">Vaga publicada em: <%= moment(job.createdAt,'YYYY-MM-DD').format('DD/MM/YYYY'); %> </small></p>
+<p class="card-text"><small class="text-muted" style="font-family: gotham light;">Vaga publicada em: <%= moment(job.createdAt,'YYYY-MM-DD').format('DD/MM/YYYY'); %> | <%= moment(job.updatedAt).locale('PT').format('LT'); %> </small></p>
 <hr>
 <div style="font-family: gotham; vertical-align: middle; background-color: black; color: white; border-radius: 5px; vertical-align: middle; width: 150px; height: 30px; text-align: center; font-size: 22px;">
 <h5 style="font-size: 15px; vertical-align: middle;">Código da vaga: <%= job.id %>  
