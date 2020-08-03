@@ -32,6 +32,7 @@
 <h5 style="font-family: gotham light; font-weight: 600;">Gênero: <%= list.gender %> </h5>
 <h5 style="font-family: gotham light; font-weight: 600;">País de origem: <%= list.country %> </h5>
 <h5 style="font-family: gotham light; font-weight: 600;">Língua materna: <%= list.motherLanguage %> </h5>
+<h5 style="font-family: gotham light; font-weight: 600;">Localização: <%= list.currentCountry %> | <%= list.currentCity %> (<%= list.state %>) </h5>
 <p class="card-text"><small class="text-muted" style="font-family: gotham light;">Última atualização: <%= moment(list.updatedAt,'YYYY-MM-DD').format('DD/MM/YYYY'); %> | <%= moment(list.updatedAt).locale('PT').format('LT'); %>  </small></p>
 <hr>
 <div style="font-family: gotham; vertical-align: middle; background-color: black; color: white; border-radius: 5px; vertical-align: middle; width: 150px; height: 30px; text-align: center; font-size: 22px;">

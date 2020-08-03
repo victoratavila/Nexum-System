@@ -12,16 +12,16 @@
 <div class = "form-group">
 <form action="/update/form/sent" method="post" onsubmit="confirmUpdate(event,this)" style="width: 500px; margin-top: -20px;">
 
-<label for="firstName" style="font-size: 20px; margin-left: 350px;">Name:</label>
+<label for="firstName" style="font-size: 20px; margin-left: 350px;">Nome:</label>
 <input class = "form-control" value = "<%= person.firstName %>" type="text" name="firstName" id="firstName" style="width: 400px; margin-left: 350px; font-size: 20px; margin-bottom: 15px;"> 
 
-<label for="lastName" style="font-size: 20px; margin-left: 350px;">Last name:</label>
+<label for="lastName" style="font-size: 20px; margin-left: 350px;">Sobrenome:</label>
 <input class = "form-control" value = "<%= person.lastName %>" type="text" name="lastName" id="lastName" style="width: 400px; margin-left: 350px; font-size: 20px; margin-bottom: 15px;" >
 
-<label for="age" style="font-size: 20px; margin-left: 350px;">Age:</label>
+<label for="age" style="font-size: 20px; margin-left: 350px;">Idade:</label>
 <input class = "form-control" value = "<%= person.age %>" type="text" name="age" id="age" style="width: 400px; margin-left: 350px; font-size: 20px; margin-bottom: 15px;">
 
-<label for="country" style="font-size: 20px; margin-left: 350px;">Native country:</label>
+<label for="country" style="font-size: 20px; margin-left: 350px;">País de origem:</label>
 <select class="form-control" required type="text" name="country" id="country" style = "width: 400px; margin-left: 350px; font-size: 20px; margin-bottom: 15px;" placeholder="Native country">
   <option disabled selected><%= person.country %></option>
   <option value="Afeganistão">Afeganistão</option>
@@ -276,7 +276,7 @@
 	<option value="Zâmbia">Zâmbia</option>
 </select>
 
-<label for="motherLanguage" style="font-size: 20px; margin-left: 350px;">Mother language:</label>
+<label for="motherLanguage" style="font-size: 20px; margin-left: 350px;">Língua materna:</label>
 <select class="form-control" required type="text" name="motherLanguage" id="motherLanguage" style = "width: 400px; margin-left: 350px; font-size: 20px; margin-bottom: 15px;" placeholder="Mother Language">
   <option disabled selected><%= person.motherLanguage %></option>
   <option value="Africâner">Africâner</option>
@@ -354,7 +354,44 @@
   <option value="Xhosa">Xhosa</option>
 </select>
 
+<label for="state" style="font-size: 20px; margin-left: 350px;">Estado:</label>
+<select class="form-control" required type="text" name="state" id="state" style = "width: 400px; margin-left: 350px; font-size: 20px; margin-bottom: 15px;" placeholder="Mother Language">
+	<option disabled selected>Selecione UF atual</option>
+	<option value="AC">AC</option>
+	<option value="AL">AL</option>
+	<option value="AP">AP</option>
+	<option value="AM">AM</option>
+	<option value="BA">BA</option>
+	<option value="CE">CE</option>
+	<option value="DF">DF</option>
+	<option value="ES">ES</option>
+	<option value="GO">GO</option>
+	<option value="MA">MA</option>
+	<option value="MT">MT</option>
+	<option value="MS">MS</option>
+	<option value="MG">MG</option>
+	<option value="PA">PA</option>
+	<option value="PB">PB</option>
+	<option value="PR">PR</option>
+	<option value="PE">PE</option>
+	<option value="PI">PI</option>
+	<option value="RJ">RJ</option>
+	<option value="RN">RN</option>
+	<option value="RS">RS</option>
+	<option value="RO">RO</option>
+	<option value="RR">RR</option>
+	<option value="SC">SC</option>
+	<option value="SP">SP</option>
+	<option value="SE">SE</option>
+	<option value="TO">TO</option>
+</select>
+
+<label for="currentCity" style="font-size: 20px; margin-left: 350px;">Cidade atual:</label>
+<input class = "form-control"  type="text" name="currentCity" id="currentCity" style="width: 400px; margin-left: 350px; font-size: 20px; margin-bottom: 15px;">
+
 <input class = "form-control" value = "<%= person.id %>" type="text" name="id2" id="id2" style="width: 400px; margin-left: 350px; font-size: 20px; margin-bottom: 15px; display: none;"  >
+
+<input class="form-control" type="hidden" value="Brasil" required type="text" name="currentCountry" id="currentCountry" style = "font-size: 22px;  margin-left: 320px; margin-top: 15px;" placeholder="Cidade atual">
 
 <label for="id" style="font-size: 20px; margin-left: 350px;">ID:</label>
 <input class = "form-control" value = "<%= person.id %>" disabled type="text" name="id" id="id" style="width: 400px; margin-left: 350px; font-size: 20px; margin-bottom: 15px;" >

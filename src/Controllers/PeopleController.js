@@ -19,12 +19,15 @@ res.render('searchByID', {sessao: req.session.admin});
 
 
 //Route to save people
-router.post('/people/save', adminAuth,  (req, res) => {
+router.post('/people/save', (req, res) => {
 var firstName = req.body.firstName;
 var lastName = req.body.lastName;
 var age = req.body.age;
 var gender = req.body.gender;
 var country = req.body.country;
+var currentCountry = req.body.currentCountry;
+var currentCity = req.body.currentCity;
+var state = req.body.state;
 var motherLanguage = req.body.motherLanguage;
 var maritalStatus = req.body.maritalStatus;
 
@@ -34,6 +37,9 @@ lastName: lastName,
 age: age,
 gender: gender,
 country: country,
+currentCountry: currentCountry,
+currentCity: currentCity,
+state: state,
 motherLanguage: motherLanguage,
 maritalStatus: maritalStatus,
 }).then( (data) => {
@@ -87,7 +93,7 @@ return res.json({result});
 // ----------------------------------------------------------------------------------
 
 //Delete person/people
-router.post('/people/delete', adminAuth, (req, res) => {
+router.post('/people/delete', (req, res) => {
 var id = req.body.id;
 
 People.destroy({
@@ -175,19 +181,34 @@ router.post('/information/update', adminAuth, (req, res) => {
 // ----------------------------------------------------------------------------------
 
 router.post('/update/form/sent', adminAuth, (req, res) => {
-var id = req.body.id2;
-var firstName = req.body.firstName;
-var lastName = req.body.lastName;
-var gender = req.body.gender;
-var age = req.body.age;
-var country = req.body.country;
-var motherLanguage = req.body.motherLanguage;
-var maritalStatus = req.body.maritalStatus;
+    var firstName = req.body.firstName;
+    var lastName = req.body.lastName;
+    var age = req.body.age;
+    var gender = req.body.gender;
+    var country = req.body.country;
+    var currentCountry = req.body.currentCountry;
+    var currentCity = req.body.currentCity;
+    var state = req.body.state;
+    var motherLanguage = req.body.motherLanguage;
+    var maritalStatus = req.body.maritalStatus;
+    var id = req.body.id2;
 
-People.update({firstName: firstName, lastName: lastName, gender: gender, age: age, country: country, maritalStatus: maritalStatus, motherLanguage: motherLanguage}, {
+People.update({
+    firstName: firstName, 
+    lastName: lastName, 
+    gender: gender, 
+    age: age, 
+    country: country, 
+    currentCountry: currentCountry,
+    currentCity: currentCity,
+    maritalStatus: maritalStatus,
+    state: state,
+    motherLanguage: motherLanguage}, {
+
 where: {
 id: id
 }
+
 }).then( (result) => {
 res.render('updatedSuccessfully', {id, firstName, lastName, sessao: req.session.admin});
 }).catch( (err) => {

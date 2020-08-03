@@ -31,6 +31,21 @@ country: {
     allowNull: false
 },
 
+currentCountry: {
+    type: Sequelize.STRING,
+    allowNull: false
+},
+
+currentCity: {
+    type: Sequelize.STRING,
+    allowNull: false
+},
+
+state: {
+    type: Sequelize.STRING,
+    allowNull: false
+},
+
 motherLanguage: {
     type: Sequelize.STRING,
     allowNull: false
@@ -42,6 +57,6 @@ maritalStatus: {
 }
 })
 
-// People.sync({force: false});
+People.sync({force: false});
 
 module.exports = People;
