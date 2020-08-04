@@ -1,6 +1,6 @@
 const Sequelize = require('sequelize');
 
-const connection = new Sequelize('nexumsystem','victoratavila','Vik5e82w43', {
+const connection = new Sequelize('nexumsystem','victoratavila','', {
 host: 'mysql669.umbler.com',
 dialect: 'mysql',
 port: 41890
