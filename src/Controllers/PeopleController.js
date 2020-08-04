@@ -6,7 +6,19 @@ const adminAuth = require('../middlewares/adminAuth');
 const moment = require('moment');
 
 router.get('/', adminAuth, (req,res) => {
-res.render('actions', {sessao: req.session.admin});
+var sessao = req.session.admin;
+
+if(sessao.gender == 'Masculino'){
+    var welcome = "Bem vindo";
+
+} else if(sessao.gender == 'Feminino'){
+    var welcome = "Bem vinda";
+
+} else {
+    var welcome = "Bem vindx";
+}
+
+res.render('actions', {sessao: sessao, welcome: welcome});
 })
 
 router.get('/form/create/people', adminAuth, (req,res) => {
