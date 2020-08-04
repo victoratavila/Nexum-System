@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const Job = require('../models/Job');
+const People = require('../models/People');
 const moment = require('moment');
 const adminAuth = require('../middlewares/adminAuth');
 
@@ -14,7 +15,6 @@ router.post('/create/job', (req, res) => {
     var city = req.body.city;
     var state = req.body.state;
     var country = req.body.country;
-    var pwd_exclusive = req.body.pwd_exclusive;
 
     Job.create({
         company: company,
@@ -23,7 +23,6 @@ router.post('/create/job', (req, res) => {
         city: city,
         state: state,
         country: country,
-        pwd_exclusive: pwd_exclusive
 
     }).then( () => {
         res.json({result: 'job saved successfully'});
@@ -59,7 +58,6 @@ router.get('/job/opportunity', adminAuth, (req, res) => {
     })
     .then((jobs) => {
         res.render('jobOpportunity', {jobs: jobs, moment, sessao: req.session.admin, navActive})
-        console.log(page_name);
     })
     .catch((err) => {
         console.log(err)
@@ -84,6 +82,52 @@ router.post('/job/delete', (req, res) => {
     })
     })
 
+// Job compability ------------------------------------
+
+router.get('/job/compatibility/:vacancyID', adminAuth, (req, res) => {
+    var vacancyID = req.params.vacancyID;
+
+    Job.findOne({
+        where: {
+            id: vacancyID
+        }
+    }).then((job) => {
+       
+        People.findAll({
+            where: {
+                currentCity: job.city,
+                state: job.state
+            }
+        }).then((compatiblePeople) => {
+
+            
+            if(compatiblePeople != 0){
+
+                var sessao = req.session.admin;
+
+                if(compatiblePeople.length == 1){
+                    var amount = 'Imigrante compatível'; 
+                } if(compatiblePeople.length > 1){
+                    var amount = 'Imigrantes compatíveis';
+                }
+                res.render('jobCompatible', {sessao, amount, job: job, compatiblePeople: compatiblePeople, moment});
+
+            } else {
+                var sessao = req.session.admin;
+                res.render('jobNotCompatible', {sessao, amount, job: job, compatiblePeople: compatiblePeople, moment});
+            }
+            
+
+
+        }).catch((err) => {
+            console.log(err)
+        })
+
+    }).catch((err) => {
+        console.log(err);
+    })
+
+})
 
 
 module.exports = router;

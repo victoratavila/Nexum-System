@@ -34,11 +34,6 @@ state: {
 country: {
     type: Sequelize.STRING,
     allowNull: false
-},
-
-pwd_exclusive: {
-    type: Sequelize.STRING,
-    allowNull: false
 }
 
 });

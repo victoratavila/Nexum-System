@@ -50,7 +50,7 @@ console.log(err)
 });
 // ----------------------------------------------------------------------------------
 
-//See all people
+//See all people frontend
 router.get('/people/list', adminAuth, (req, res) => {
 
 People.findAll({
@@ -63,9 +63,24 @@ res.render('peopleList', {list: list, sessao: req.session.admin, moment});
 }).catch( (err) => {
 res.send(err)
 
+});
+});
 
-});
-});
+//See all people backend
+router.get('/list/people', (req, res) => {
+
+    People.findAll({
+        order: [
+            ['id', 'DESC'],
+        ], raw: true
+    }).then( (list) => {
+    res.json(list)
+    }).catch( (err) => {
+    res.send(err)
+    
+    });
+    });
+
 
 // ----------------------------------------------------------------------------------
 
