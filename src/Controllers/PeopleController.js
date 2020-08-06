@@ -70,7 +70,6 @@ People.findAll({
         ['id', 'DESC'],
     ], raw: true
 }).then( (list) => {
-console.log(list);
 res.render('peopleList', {list: list, sessao: req.session.admin, moment});
 }).catch( (err) => {
 res.send(err)
