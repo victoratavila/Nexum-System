@@ -44,10 +44,15 @@ roomsAmount: {
 squareMeters: {
     type: Sequelize.STRING,
     allowNull: false
+},
+
+type: {
+    type: Sequelize.STRING,
+    allowNull: false
 }
 
 });
 
-Home.sync({force: true});
+Home.sync({force: false});
 
 module.exports = Home;
