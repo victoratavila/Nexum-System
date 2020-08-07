@@ -31,7 +31,7 @@ res.render('searchByID', {sessao: req.session.admin});
 
 
 //Route to save people
-router.post('/people/save', (req, res) => {
+router.post('/people/save', adminAuth, (req, res) => {
 var firstName = req.body.firstName;
 var lastName = req.body.lastName;
 var age = req.body.age;
@@ -176,7 +176,7 @@ res.render('deletePeopleForm', {sessao: req.session.admin});
 
 // ----------------------------------------------------------------------------------
 
-router.get('/people/form/edit', (req, res) => {
+router.get('/people/form/edit', adminAuth, (req, res) => {
 var id = req.body.id;
 
 res.render('editPeopleForm', {id: req.body.id, sessao: req.session.admin});

@@ -38,6 +38,7 @@
 <p class="card-text"><small class="text-muted" style="font-family: gotham light;">Vaga publicada em: <%= moment(home.createdAt,'YYYY-MM-DD').format('DD/MM/YYYY'); %> </small></p>
 <hr>
 <button class = "btn btn-dark" disabled id = "codeID">Código de Identificação: <%= home.id %></button>
+<a class = "btn btn-success" href="/habitation/compability/<%=home.id%>" id = "imigrantesCompatíveis">Imigrantes compatíveis</a>
 </h5>
 </div>
 </div>

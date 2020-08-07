@@ -1,0 +1,102 @@
+<%- include('../partials/header.ejs'); %>
+<%- include('../partials/navbar.ejs'); %>
+
+<br>
+<body style="font-family: gotham;">
+<br><h2 style="text-align: center; font-family: gotham;"> <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-check-circle-fill" fill="green" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+</svg> <%= amount %> (<%= result.length %>) </h2>
+<div class = "container">
+
+    <a href="/list/habitation">
+        <svg width="3em" height="3em" viewBox="0 0 16 16" class="bi bi-arrow-left-square-fill" fill="green" xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd" d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.354 10.646a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L6.207 7.5H11a.5.5 0 0 1 0 1H6.207l2.147 2.146z"/>
+        </svg>
+    </a>
+<button class = "btn btn-success" id = "vacancyDetails" onclick="modalON()" style="height: 50px; margin-left: 940px; margin-top: -75px;"><p style="margin: 0;">Detalhes moradia</p></button>
+</div>
+
+<% result.forEach( result => { %>
+    
+<br>
+<div class = "container">
+<div class="card mb-3" style="font-size: 20px; ">
+<div class="row no-gutters">
+<div class="col-md-8">
+<div class="card-body">
+
+<h1> <%=result.firstName %> <%=result.lastName %>  </h1>
+<h5 style="font-family: gotham light; font-weight: 600;">Idade: <%= result.age %> anos</h5>
+<h5 style="font-family: gotham light; font-weight: 600;">Estado civil: <%= result.maritalStatus %> </h5>
+<h5 style="font-family: gotham light; font-weight: 600;">Gênero: <%= result.gender %> </h5>
+<h5 style="font-family: gotham light; font-weight: 600;">País de origem: <%= result.country %> </h5>
+<h5 style="font-family: gotham light; font-weight: 600;">Língua materna: <%= result.motherLanguage %> </h5>
+<h5 style="font-family: gotham light; font-weight: 600;">Localização: <%= result.currentCountry %> | <%= result.currentCity %> (<%= result.state %>) </h5>
+<p class="card-text"><small class="text-muted" style="font-family: gotham light;">Última atualização: <%= moment(result.updatedAt,'YYYY-MM-DD').format('DD/MM/YYYY'); %> | <%= moment(result.updatedAt).locale('PT').format('LT'); %>  </small></p>
+<hr>
+<button class = "btn btn-dark" disabled id = "codeID">Código de Identificação: <%= result.id %></button>
+</h5>
+</div>
+</div>
+<p class="card-text"><small class="text-muted"></small></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+  
+<% }) %>
+
+
+<div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="staticBackdropLabel"> Detalhes da moradia </h2>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+  
+          <table class="table table-hover" style="text-align: center;">
+              <thead class = "thead-dark">
+                <tr>
+                  <th scope="col">Rua</th>
+                  <th scope="col">Bairro</th>
+                  <th scope="col">Cidade</th>
+                  <th scope="col">País</th>
+                  <th scope="col">Tipo</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="font-family: Gotham light; text-align: center;">
+                  <td><%= list.street %> (<%= list.number %>)</td>
+                  <td><%= list.neighborhood %></td>
+                  <td><%= list.city %> (<%= list.state %>)</td>
+                  <td><%= list.country %> </td>
+                  <td><%= list.type %> </td>
+                </tr>
+              </tbody>
+            </table>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Fechar</button>
+      </div>
+    </div>
+  </div>
+</div>
+  
+<!--  -->
+
+  <script>
+    function modalON(){
+      $('#staticBackdrop').modal('show')
+    }
+  </script>
+
+</body>
+
+
+<%- include('../partials/footer.ejs'); %>
