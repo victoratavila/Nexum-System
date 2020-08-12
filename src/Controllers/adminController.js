@@ -159,5 +159,26 @@ router.get('/list/admin', (req, res) => {
     })
 })
 
+router.get('/report/bug', adminAuth, (req, res) => {
+    var sessao = req.session.admin
+    res.render('reportBug', {sessao} );
+})
+
+router.get('/sent', adminAuth, (req, res) => {
+    var sessao = req.session.admin
+
+    if(sessao.gender == 'Masculino'){
+        var welcome = "Obrigado";
+    
+    } else if(sessao.gender == 'Feminino'){
+        var welcome = "Obrigada";
+    
+    } else {
+        var welcome = "Bem vindx";
+    }
+    
+    res.render('reportEnviado', {sessao, welcome} );
+})
+
 
 module.exports = router;
