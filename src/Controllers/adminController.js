@@ -174,7 +174,7 @@ router.get('/sent', adminAuth, (req, res) => {
         var welcome = "Obrigada";
     
     } else {
-        var welcome = "Bem vindx";
+        var welcome = "Obrigadx";
     }
     
     res.render('reportEnviado', {sessao, welcome} );
