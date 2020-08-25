@@ -49,6 +49,7 @@ router.get('/list/jobs', (req, res) => {
 
 router.get('/job/opportunity', adminAuth, (req, res) => {
 
+ 
     var navActive = 'nav-item active';
 
     Job.findAll({
@@ -57,7 +58,8 @@ router.get('/job/opportunity', adminAuth, (req, res) => {
         ],
     })
     .then((jobs) => {
-        res.render('jobOpportunity', {jobs: jobs, moment, sessao: req.session.admin, navActive})
+        const url = '/job/compatibility/';
+        res.render('jobOpportunity', {jobs: jobs, moment, url: url, sessao: req.session.admin, navActive})
     })
     .catch((err) => {
         console.log(err)
@@ -104,6 +106,7 @@ router.get('/job/compatibility/:vacancyID', adminAuth, (req, res) => {
             if(compatiblePeople != 0){
 
                 var sessao = req.session.admin;
+                const url = '/job/compatibility/';
 
                 if(compatiblePeople.length == 1){
                     var amount = 'Imigrante compatível'; 

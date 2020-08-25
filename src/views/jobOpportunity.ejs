@@ -19,37 +19,21 @@
 
 <% jobs.forEach( job => { %>
     
-<br>
-<div class = "container">
-<div class="card mb-3" style="font-size: 20px; ">
-<div class="row no-gutters">
-<div class="col-md-8">
-<div class="card-body">
-
-<h1> <%=job.role %> </h1>
-<h5 style="font-family: gotham light; font-weight: 600;">Empresa: <%= job.company %></h5>
-<h5 style="font-family: gotham light; font-weight: 600;">Nível: <%= job.level %> </h5>
-<h5 style="font-family: gotham light; font-weight: 600;">Localização: <%= job.country %> | <%= job.city %> (<%=job.state%>) </h5>
-<p class="card-text"><small class="text-muted" style="font-family: gotham light;">Vaga publicada em: <%= moment(job.createdAt,'YYYY-MM-DD').format('DD/MM/YYYY'); %> | <%= moment(job.updatedAt).locale('PT').format('LT'); %> </small></p>
-<hr>
-<button class = "btn btn-dark" disabled id = "codeID">Código de Identificação: <%= job.id %></button>
-<a class = "btn btn-success" href="/job/compatibility/<%=job.id%>" id = "imigrantesCompatíveis">Imigrantes compatíveis</a>
-</h5>
-</div>
-</div>
-<p class="card-text"><small class="text-muted"></small></p>
-</div>
-</div>
-</div>
-</div>
-</div>
+  <div class = "cardGeneral">
+    <div class="information"> <br> <br> 
+      <h1><%= job.role %></h1>
+      <h5 style = 'font-family: gotham light; font-weight: 600'>Empresa: <%= job.company %></h5>
+      <h5 style = 'font-family: gotham light; font-weight: 600'>Nível: <%= job.level %></h5>
+      <h5 style = 'font-family: gotham light; font-weight: 600'>Local: <%= job.country %> | <%= job.city %> (<%= job.state%>)</h5>
+      <p class="card-text"><small class="text-muted" style="font-family: gotham light; font-size: 15px;">Vaga publicada em: <%= moment(job.createdAt,'YYYY-MM-DD').format('DD/MM/YYYY'); %> | <%= moment(job.createdAt).locale('PT').format('LT'); %>  </small></p> 
+      <a class = "btn btnCompatible"  href="/job/compatibility/<%= job.id %>" style="color: white;">Imigrantes compatíveis</a> <br> <br>
+      <button class = "btn idBtnGeneral" onmouseover = "effect()" style="margin-left: 520px; color: white; border-radius: 30px; color: white; margin-top: 5px; height: 60px; width: 120px; font-size: 20px; font-family: Gotham regular;" id = "codeID">ID: <%= job.id %></button>  
+ 
+    </div> 
+  </div> <br><br>
+    
   
 <% }) %>
-
-
-
-  
-
 
 </body>
 <%- include('../partials/footer.ejs'); %>

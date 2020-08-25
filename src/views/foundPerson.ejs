@@ -1,54 +1,55 @@
 <%- include('../partials/header.ejs'); %>
 <%- include('../partials/navbar.ejs'); %>
-<br>
-<body style="font-family: gotham;">
-<br><h2 style="text-align: center; font-family: gotham;"> <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-person-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-    <path d="M13.468 12.37C12.758 11.226 11.195 10 8 10s-4.757 1.225-5.468 2.37A6.987 6.987 0 0 0 8 15a6.987 6.987 0 0 0 5.468-2.63z"/>
-    <path fill-rule="evenodd" d="M8 9a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
-    <path fill-rule="evenodd" d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8z"/>
-  </svg> Imigrante encontrado </h2><br><hr>
-<div class = "container">
 
-<a href="/">
+<body style="font-family: gotham; background: rgb(238, 237, 237);">
+
+
+
+  <div class="downNavbar">
+    <br><br>
+    <h2 style="text-align: center; font-family: gotham; color: white; font-family: Gotham light;"> <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-person-circle" fill="white" xmlns="http://www.w3.org/2000/svg">
+      <path d="M13.468 12.37C12.758 11.226 11.195 10 8 10s-4.757 1.225-5.468 2.37A6.987 6.987 0 0 0 8 15a6.987 6.987 0 0 0 5.468-2.63z"/>
+      <path fill-rule="evenodd" d="M8 9a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+      <path fill-rule="evenodd" d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8z"/>
+    </svg> Imigrante encontrado </h2>
+  </div>
+
+  <% person.forEach( result => { %>
+
+  <div class="peopleCard">
+  <div class = "card">
+    <div class="information"> <br>
+      <h1> <%=result.firstName %> <%=result.lastName %> </h1>
+      <h5 style="font-family: gotham light; font-weight: 600;">Idade: <%= result.age %> anos</h5>
+      <h5 style="font-family: gotham light; font-weight: 600;">Estado civil: <%= result.maritalStatus %> </h5>
+      <h5 style="font-family: gotham light; font-weight: 600;">Gênero: <%= result.gender %> </h5>
+      <h5 style="font-family: gotham light; font-weight: 600;">País de origem: <%= result.country %> </h5>
+      <h5 style="font-family: gotham light; font-weight: 600;">Língua materna: <%= result.motherLanguage %> </h5>
+      <h5 style="font-family: gotham light; font-weight: 600;">Localização: <%= result.currentCountry %> | <%= result.currentCity %> (<%= result.state %>) </h5>
+      <p class="card-text"><small class="text-muted" style="font-family: gotham light; font-size: 15px;">Última atualização: <%= moment(result.updatedAt,'YYYY-MM-DD').format('DD/MM/YYYY'); %> | <%= moment(result.updatedAt).locale('PT').format('LT'); %>  </small></p>
+      <button class = "btn idBtn" onmouseover = "effect()" style="margin-left: 520px; border-radius: 30px; color: white; margin-top: -10px; height: 60px; width: 120px; font-size: 20px; font-family: Gotham regular;" id = "codeID">ID: <%= result.id %></button>
+    </div>
+  </div>
+  </div>
+
+  <br><br><br><br>
+
+  <% }) %>
+
+
+
+  <div class = "container">
+<!-- <a href="/">
     <svg width="3em" height="3em" viewBox="0 0 16 16" class="bi bi-arrow-left-square-fill" fill="green" xmlns="http://www.w3.org/2000/svg">
     <path fill-rule="evenodd" d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.354 10.646a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L6.207 7.5H11a.5.5 0 0 1 0 1H6.207l2.147 2.146z"/>
     </svg>
-</a>
+</a> -->
 
 </div>
-
-<% person.forEach( result => { %>
-    
-<br>
-<div class = "container">
-<div class="card mb-3" style="font-size: 20px; ">
-<div class="row no-gutters">
-<div class="col-md-8">
-<div class="card-body">
-
-<h1> <%=result.firstName %> <%=result.lastName %> </h1>
-<h5 style="font-family: gotham light; font-weight: 600;">Idade: <%= result.age %> anos</h5>
-<h5 style="font-family: gotham light; font-weight: 600;">Estado civil: <%= result.maritalStatus %> </h5>
-<h5 style="font-family: gotham light; font-weight: 600;">Gênero: <%= result.gender %> </h5>
-<h5 style="font-family: gotham light; font-weight: 600;">País de origem: <%= result.country %> </h5>
-<h5 style="font-family: gotham light; font-weight: 600;">Língua materna: <%= result.motherLanguage %> </h5>
-<h5 style="font-family: gotham light; font-weight: 600;">Localização: <%= result.currentCountry %> | <%= result.currentCity %> (<%= result.state %>) </h5>
-<p class="card-text"><small class="text-muted" style="font-family: gotham light;">Última atualização: <%= moment(result.updatedAt,'YYYY-MM-DD').format('DD/MM/YYYY'); %> | <%= moment(result.updatedAt).locale('PT').format('LT'); %>  </small></p>
-<hr>
-<button class = "btn btn-dark" disabled id = "codeID">Código de Identificação: <%= result.id %></button>
-</h5>
-</div>
-</div>
-<p class="card-text"><small class="text-muted"></small></p>
-</div>
-</div>
-</div>
-</div>
-</div>
-  
-<% }) %>
 
 
 </body>
+
+
 
 <%- include('../partials/footer.ejs'); %>

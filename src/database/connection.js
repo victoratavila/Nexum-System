@@ -1,9 +1,8 @@
 const Sequelize = require('sequelize');
 
-const connection = new Sequelize('nexumsystem','victoratavila','', {
-host: 'mysql669.umbler.com',
+const connection = new Sequelize('api','root','123456', {
+host: 'localhost',
 dialect: 'mysql',
-port: 41890
 });
 
 module.exports = connection;

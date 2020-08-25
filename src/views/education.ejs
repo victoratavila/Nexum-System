@@ -18,28 +18,17 @@
 
 <% education.forEach( education => { %>
     
-<br>
-<div class = "container">
-<div class="card mb-3" style="font-size: 20px; ">
-<div class="row no-gutters">
-<div class="col-md-8">
-<div class="card-body">
-
-<h1> <%= education.offeredCourse %> </h1>
-<h5 style="font-family: gotham light; font-weight: 600;">Instituição: <%= education.institutionName %></h5>
-<h5 style="font-family: gotham light; font-weight: 600;">Forma de ingresso: <%= education.joinMethod %> </h5>
-<h5 style="font-family: gotham light; font-weight: 600;">Vagas: <%= education.vacancy %> </h5>
-<h5 style="font-family: gotham light; font-weight: 600;">Localização: <%= education.country %> | <%= education.city %> (<%= education.state %>)  </h5>
-<p class="card-text"><small class="text-muted" style="font-family: gotham light;">Oportunidade publicada em: <%= moment(education.createdAt,'YYYY-MM-DD').format('DD/MM/YYYY'); %> | <%= moment(education.updatedAt).locale('PT').format('LT'); %> </small></p>
-<hr>
-<button class = "btn btn-dark" disabled id = "codeID">Código de Identificação: <%= education.id %></button>
-</div>
-<p class="card-text"><small class="text-muted"></small></p>
-</div>
-</div>
-</div>
-</div>
-</div>
+<div class = "cardGeneral">
+  <div class="information"> <br> <br>
+    <h1><%= education.institutionName %></h1>
+    <h5 style = 'font-family: gotham light; font-weight: 600'>Curso: <%= education.offeredCourse %></h5>
+    <h5 style = 'font-family: gotham light; font-weight: 600'>Ingresso: <%= education.joinMethod %></h5>
+    <h5 style = 'font-family: gotham light; font-weight: 600'>Vagas: <%= education.vacancy %></h5>
+    <h5 style = 'font-family: gotham light; font-weight: 600'>Local: <%= education.country %> | <%= education.city %> (<%= education.state%>)</h5>
+    <p class="card-text"><small class="text-muted" style="font-family: gotham light; font-size: 15px;">Disponível desde: <%= moment(education.updatedAt,'YYYY-MM-DD').format('DD/MM/YYYY'); %> | <%= moment(education.updatedAt).locale('PT').format('LT'); %>  </small></p> 
+    <button class = "btn idBtnGeneral" onmouseover = "effect()" style="margin-left: 520px; border-radius: 30px; color: white; margin-top: -10px; height: 60px; width: 120px; font-size: 20px; font-family: Gotham regular;" id = "codeID">ID: <%= education.id %></button>  
+  </div> 
+</div> <br><br>
   
 <% }) %>
 

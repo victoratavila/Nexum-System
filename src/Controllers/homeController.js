@@ -15,7 +15,9 @@ router.get('/list/habitation', adminAuth,  (req, res) => {
         ]
     }).then( (list) => {
         var sessao = req.session.admin;
-        res.render('habitationOpportunity', {list: list, sessao: sessao, moment})
+        const url = '/habitation/compability/';
+
+        res.render('habitationOpportunity', {list: list, url: url, sessao: sessao, moment})
     }).catch((err) => {
         console.log(err);
     })
@@ -107,6 +109,24 @@ router.get('/habitation/compability/:id', adminAuth, (req, res) => {
         console.log(err)
     })
 
+})
+
+
+
+// Delete home 
+
+router.get('/delete/habitation/:id', (req, res) => {
+    var id  = req.params.id;
+    
+    Home.destroy({
+        where: {
+            id: id
+        }
+    }).then(() => {
+        res.json({result: 'habitation register deleted successfully'});
+    }).catch((err) => {
+        console.log(err); 
+    })
 })
 
 module.exports = router;

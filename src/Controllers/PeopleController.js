@@ -31,7 +31,7 @@ res.render('searchByID', {sessao: req.session.admin});
 
 
 //Route to save people
-router.post('/people/save', adminAuth, (req, res) => {
+router.post('/people/save', (req, res) => {
 var firstName = req.body.firstName;
 var lastName = req.body.lastName;
 var age = req.body.age;

@@ -19,35 +19,19 @@
 
 <% list.forEach( home => { %>
     
-<br>
-<div class = "container">
-<div class="card mb-3" style="font-size: 20px; ">
-<div class="row no-gutters">
-<div class="col-md-8">
-<div class="card-body">
-
-<h1>
-<%= home.type %> 
-</h1>
-
-<h5 style="font-family: gotham light; font-weight: 600;">Rua: <%= home.street %></h5>
-<h5 style="font-family: gotham light; font-weight: 600;">Número: <%= home.number %> </h5>
-<h5 style="font-family: gotham light; font-weight: 600;">Cidade: <%= home.city %> | (<%=home.state%>) </h5>
-<h5 style="font-family: gotham light; font-weight: 600;">Quantidade de quartos: <%= home.roomsAmount %> </h5>
-<h5 style="font-family: gotham light; font-weight: 600;">Tamanho: <%= home.squareMeters %>m<sup>2</sup> </h5>
-<p class="card-text"><small class="text-muted" style="font-family: gotham light;">Vaga publicada em: <%= moment(home.createdAt,'YYYY-MM-DD').format('DD/MM/YYYY'); %> </small></p>
-<hr>
-<button class = "btn btn-dark" disabled id = "codeID">Código de Identificação: <%= home.id %></button>
-<a class = "btn btn-success" href="/habitation/compability/<%=home.id%>" id = "imigrantesCompatíveis">Imigrantes compatíveis</a>
-</h5>
-</div>
-</div>
-<p class="card-text"><small class="text-muted"></small></p>
-</div>
-</div>
-</div>
-</div>
-</div>
+  <div class = "cardGeneral">
+    <div class="information"> <br> 
+      <h1><%= home.type %></h1>
+      <h5 style = 'font-family: gotham light; font-weight: 600'>Cidade: <%= home.city %> (<%= home.state %>)</h5>
+      <h5 style = 'font-family: gotham light; font-weight: 600'>Local: Rua <%= home.street %> - <%= home.neighborhood %> (<%= home.city %>/<%= home.state %>)</h5>
+      <h5 style = 'font-family: gotham light; font-weight: 600'>Número: <%= home.number %></h5>
+      <h5 style = 'font-family: gotham light; font-weight: 600'>Quantidade de quartos: <%= home.roomsAmount %></h5>
+      <h5 style = 'font-family: gotham light; font-weight: 600'>Tamanho: <%= home.squareMeters %>m²</h5>
+      <p class="card-text"><small class="text-muted" style="font-family: gotham light; font-size: 15px;">Disponível desde: <%= moment(home.createdAt,'YYYY-MM-DD').format('DD/MM/YYYY'); %> | <%= moment(home.createdAt).locale('PT').format('LT'); %>  </small></p> 
+      <a class = "btn btnCompatible" href="/habitation/compability/<%= home.id %>" style="color: white;">Imigrantes compatíveis</a> 
+      <button class = "btn idBtnHabitation" onmouseover = "effect()" style="margin-left: 520px; border-radius: 30px; color: white; margin-top: -10px; height: 60px; width: 120px; font-size: 20px; font-family: Gotham regular;" id = "codeID">ID: <%= home.id %></button>  
+    </div> 
+  </div> <br><br>
   
 <% }) %>
 

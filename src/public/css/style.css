@@ -1,4 +1,6 @@
-
+body {
+    background: white;
+}
 
 form {
 font-size: 30px;
@@ -62,3 +64,70 @@ text-align: center;
     margin: 0;
     height: 50px;
 }
+
+.downNavbar { 
+    background: rgb(1, 58, 10);
+    height: 180px;
+    align-items: center;
+    text-align: center;
+}
+
+.spaceBetween {
+    background: red;
+    border-radius: 50px;
+
+}
+
+.peopleList {
+   margin-top: 100px;
+}
+
+.card {
+    margin-top: -58px;
+    width: 750px;
+    height: 350px;
+    margin-left: 45vh;
+    border-radius: 40px;
+    box-shadow: 1px 10px 25px #888888;
+}
+
+.information {
+    margin-left: 50px;
+    margin-top: 5px;
+}
+
+.idBtn {
+    background: green;
+    color: white;
+}
+
+.btnCompatible {
+    background: green;
+    color: white;
+    font-family: Gotham light;
+    margin-top: 10px;
+    border-radius: 10px
+}
+
+.cardGeneral {
+    margin-top: -20px;
+    width: 750px;
+    height: 350px;
+    margin-left: 45vh;
+    border-radius: 40px;
+    box-shadow: 1px 10px 25px #888888;
+
+}
+
+.idBtnGeneral {
+    background: green;
+    color: white;
+    margin-top: -10px;
+}
+
+
+.idBtnHabitation {
+    background: green;
+    color: white;
+}
+
