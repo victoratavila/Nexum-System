@@ -13,37 +13,26 @@
         <path fill-rule="evenodd" d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.354 10.646a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L6.207 7.5H11a.5.5 0 0 1 0 1H6.207l2.147 2.146z"/>
         </svg>
     </a>
-<button class = "btn btn-success" id = "vacancyDetails" onclick="modalON()" style="height: 50px; margin-left: 940px; margin-top: -75px;"><p style="margin: 0;">Detalhes da vaga</p></button>
-</div>
+<button class = "btn btn-success" id = "vacancyDetails" onclick="modalON()" style="height: 50px; margin-left: 390px; margin-top: 5px; border-radius: 15px; text-align: center; width: 200px;"><p style="margin: 0">Detalhes da vaga</p></button>
+</div> <br><br><br>
 
 <% compatiblePeople.forEach( result => { %>
     
-<br>
-<div class = "container">
-<div class="card mb-3" style="font-size: 20px; ">
-<div class="row no-gutters">
-<div class="col-md-8">
-<div class="card-body">
-
-<h1> <%=result.firstName %> <%=result.lastName %>  </h1>
-<h5 style="font-family: gotham light; font-weight: 600;">Idade: <%= result.age %> anos</h5>
-<h5 style="font-family: gotham light; font-weight: 600;">Estado civil: <%= result.maritalStatus %> </h5>
-<h5 style="font-family: gotham light; font-weight: 600;">Gênero: <%= result.gender %> </h5>
-<h5 style="font-family: gotham light; font-weight: 600;">País de origem: <%= result.country %> </h5>
-<h5 style="font-family: gotham light; font-weight: 600;">Língua materna: <%= result.motherLanguage %> </h5>
-<h5 style="font-family: gotham light; font-weight: 600;">Localização: <%= result.currentCountry %> | <%= result.currentCity %> (<%= result.state %>) </h5>
-<p class="card-text"><small class="text-muted" style="font-family: gotham light;">Última atualização: <%= moment(result.updatedAt,'YYYY-MM-DD').format('DD/MM/YYYY'); %> | <%= moment(result.updatedAt).locale('PT').format('LT'); %>  </small></p>
-<hr>
-<button class = "btn btn-dark" disabled id = "codeID">Código de Identificação: <%= result.id %></button>
-</h5>
-</div>
-</div>
-<p class="card-text"><small class="text-muted"></small></p>
-</div>
-</div>
-</div>
-</div>
-</div>
+  <div class="peopleCard">
+    <div class = "card">
+      <div class="information"> <br>
+        <h1> <%=result.firstName %> <%=result.lastName %> </h1>
+        <h5 style="font-family: gotham light; font-weight: 600;">Idade: <%= result.age %> anos</h5>
+        <h5 style="font-family: gotham light; font-weight: 600;">Estado civil: <%= result.maritalStatus %> </h5>
+        <h5 style="font-family: gotham light; font-weight: 600;">Gênero: <%= result.gender %> </h5>
+        <h5 style="font-family: gotham light; font-weight: 600;">País de origem: <%= result.country %> </h5>
+        <h5 style="font-family: gotham light; font-weight: 600;">Língua materna: <%= result.motherLanguage %> </h5>
+        <h5 style="font-family: gotham light; font-weight: 600;">Localização: <%= result.currentCountry %> | <%= result.currentCity %> (<%= result.state %>) </h5>
+        <p class="card-text"><small class="text-muted" style="font-family: gotham light; font-size: 15px;">Última atualização: <%= moment(result.updatedAt,'YYYY-MM-DD').format('DD/MM/YYYY'); %> | <%= moment(result.updatedAt).locale('PT').format('LT'); %>  </small></p>
+        <button class = "btn idBtn" onmouseover = "effect()" style="margin-left: 520px; border-radius: 30px; color: white; margin-top: -10px; height: 60px; width: 120px; font-size: 20px; font-family: Gotham regular;" id = "codeID">ID: <%= result.id %></button>
+      </div>
+    </div>
+    </div>
   
 <% }) %>
 
