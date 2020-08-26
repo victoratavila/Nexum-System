@@ -3,47 +3,27 @@
 
 <body style="font-family: gotham;">
     
-<div class = "container">
-<br><br><br>
-<div style="font-family: Gotham light;">
 
-    <div class="card mb-8" style="max-width: 100%; height: 400px">
-        <div class="row no-gutters" style="margin-left: 100px;">
-          <div class="col-md-3">
-          <img src= <% if(sessao.gender == "Masculino"){ %>
-            <%= '/img/user.png' %>
-         <% } if(sessao.gender == "Feminino") { %>
-            <%= '/img/userPink.png' %>
-         <% } else { %>
-            <%= '/img/userGreen.png' %>
-         <% } %> class="card-img" alt="..." style="border-radius: 30px; height: 220px; width: 220px;margin-top: 90px; margin-left: -30px;">
-          </div>
-          <div class="col-md-8">
-            <div class="card-body" style="margin-right: 100px;">
-              <h3 class="card-title" style="font-family: Gotham;"><%=sessao.firstName%> <%=sessao.lastName%></h3><hr>
-              <label for="campoEmail">Email: </label>
-             <input type="text" name = "campoEmail" id = "campoEmail" class = "card-text form-control" disabled value=" <%=sessao.email%>" style="font-size: 20px;">
-             <label for="campoSenha" style="margin-top: 10px;">Senha: </label>
-             <input type="password" name = "campoSenha" id = "campoSenha" class = "card-text form-control" disabled value=" <%=sessao.password%>" style="font-size: 20px;" > 
-             <label for="campoID" style="margin-top: 10px;">Nexum ID: </label>
-             <input type="text" name = "campoID" id = "campoID" class = "card-text form-control" disabled value=" <%=sessao.id%>" style="font-size: 20px;" > <br>
-              <p class="card-text"><small class="text-muted" style="font-size: 18px;">Última atualização em: <%= sessao.updatedAt %></small></p><br>
-              <a href="/">
-                <svg width="3em" height="3em" viewBox="0 0 16 16" class="bi bi-arrow-left-square-fill" fill="black" xmlns="http://www.w3.org/2000/svg" style="margin-left: -375px;">
-                <path fill-rule="evenodd" d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.354 10.646a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L6.207 7.5H11a.5.5 0 0 1 0 1H6.207l2.147 2.146z"/>
-                </svg>
-            </a>
-            <!-- <a href="/admin/update/form" class="btn btn-outline-primary" style="margin-left: 700px; width: 150px;">Atualizar perfil</a> -->
-            </div>
-          </div>
-        </div>
-      </div>
+  <div class="container">
+    <div class="card-body" style="margin-right: 100px; width: 100%;"> <br>
+      <h2 class="card-title" style="font-family: Gotham;"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-person-lines-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd" d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm7 1.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5zm-2-3a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5zm2 9a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5z"/>
+      </svg>  Perfil de administrador</h2><hr><br>
 
-</div><br>
-
-
-
-</div>
+      <label for="campoEmail">Nome: </label>
+      <input type="text" name = "campoEmail" id = "campoEmail" class = "card-text form-control" disabled value=" <%=sessao.firstName%> <%=sessao.lastName%>" style="font-size: 20px; font-family: gotham light;">
+     <label for="campoEmail" style="margin-top: 10px; ">Email: </label>
+     <input type="text" name = "campoEmail" id = "campoEmail" class = "card-text form-control" disabled value=" <%=sessao.email%>" style="font-size: 20px; font-family: gotham light;">
+     <label for="campoSenha" style="margin-top: 10px;">Senha: </label>
+     <input type="password" name = "campoSenha" id = "campoSenha" class = "card-text form-control" disabled value=" <%=sessao.password%>" style="font-size: 20px; font-family: gotham light;" > 
+     <label for="campoID" style="margin-top: 10px;">Nexum ID: </label>
+     <input type="text" name = "campoID" id = "campoID" class = "card-text form-control" disabled value=" <%=sessao.id%>" style="font-size: 20px; font-family: gotham light;" > <br>
+      <p class="card-text"><small class="text-muted" style="font-size: 18px; font-family: gotham light;">Última atualização em: <%= sessao.updatedAt %></small></p><br>
+      <a href="/">
+        <svg width="3em" height="3em" viewBox="0 0 16 16" class="bi bi-arrow-left-square-fill" fill="black" xmlns="http://www.w3.org/2000/svg" style="margin-left: -375px;">
+        <path fill-rule="evenodd" d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.354 10.646a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L6.207 7.5H11a.5.5 0 0 1 0 1H6.207l2.147 2.146z"/>
+        </svg>
+    </a>
 
 
 
