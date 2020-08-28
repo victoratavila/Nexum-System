@@ -10,8 +10,8 @@ Nexum is a web platform to support and make easier the process of receiving data
    <li>List job opportunity</li>
    <li>List studying oportunity</li>
    <li>List habitation oportunity</li>
-   <li>Match immigrants compatible to job opoortunities</li>
-   <li>Match immigrants compatible to habitation opoortunities</li>
+   <li>Match immigrants compatible to job opportunities</li>
+   <li>Match immigrants compatible to habitation opportunities</li>
 </ul>
 
 <h3>What moves us?</h3>
