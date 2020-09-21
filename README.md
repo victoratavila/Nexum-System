@@ -1,6 +1,9 @@
 <h1> Nexum Project </h1>
 Nexum is a web platform to support and make easier the process of receiving data of immigrants from war zones or from any other region who need and deserve to have acess to basic resources in a new nation, that is: job oportunity, habitation access, food, safety and education.
 
+### Main view
+![Main view](https://i.imgur.com/gagadNc.png)
+
 <h3>What is Nexum able to do?</h3>
  <ul>
   <li>Register immigrants</li>
