@@ -3,35 +3,27 @@
 
 <body style="font-family: gotham;">
     
-<div class = "container">
-<br>
-<h4 style="text-align: center; margin-left: -60px;">Atualizar perfil de administrador </h4><br>
-<div style="font-family: Gotham light;">
 
-    <div class="card mb-8" style="max-width: 100%; height: 520px">
-        <div class="row no-gutters" style="margin-left: 300px;">
-          <div class="col-md-8">
-            <div class="card-body" style="margin-right: 100px;">
-                <form action="/admin/form/save" method="POST" style="width: 500px; font-size: 20px;">
-                <label for="campoNome">Nome: </label>
-                <input type="text" name = "campoNome" id = "campoNome" class = "card-text form-control"  value=" <%=sessao.firstName%> " style="font-size: 18px;">
-                <label for="campoSobrenome" style="margin-top: 10px;">Sobrenome: </label>
-                <input type="text" name = "campoSobrenome" id = "campoSobrenome" class = "card-text form-control"  value="  <%=sessao.lastName%>" style="font-size: 18px;">
-              <label for="campoEmail" style="margin-top: 10px;">Email: </label>
-             <input type="text" name = "campoEmail" id = "campoEmail" class = "card-text form-control"  value=" <%=sessao.email%>" style="font-size: 18px;">
-             <label for="campoSenha" style="margin-top: 10px;">Senha: </label>
-             <input type="password" name = "campoSenha" id = "campoSenha" class = "card-text form-control"  value=" <%=adminData.password%>" style="font-size: 18px;" > 
-             <label for="campoID" style="margin-top: 10px;">Nexum ID: </label>
-             <input type="text" name = "campoID" id = "campoID" class = "card-text form-control" disabled value=" <%=sessao.id%>" style="font-size: 18px;" > <br>
-             <button type="submit" class="btn btn-primary"  style="font-size: 20px; color: white; width: 500px; margin-top: -30px;" >Atualizar</button> <br>
-            </form>
-            </div>
-          </div>
-        </div>
-      </div>
+  <div class="container">
+    <div class="card-body" style="margin-right: 100px; width: 100%;"> <br>
+      <h2 class="card-title" style="font-family: Gotham;"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-person-lines-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd" d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm7 1.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5zm-2-3a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5zm2 9a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5z"/>
+      </svg>  Perfil de administrador</h2><hr><br>
 
-</div>
-
-</div>
+      <label for="campoEmail">Nome: </label>
+      <input type="text" name = "campoEmail" id = "campoEmail" class = "card-text form-control"  value=" <%=sessao.firstName%> <%=sessao.lastName%>" style="font-size: 20px; font-family: gotham light;">
+     <label for="campoEmail" style="margin-top: 10px; ">Email: </label>
+     <input type="text" name = "campoEmail" id = "campoEmail" class = "card-text form-control" disabled value=" <%=sessao.email%>" style="font-size: 20px; font-family: gotham light;">
+     <label for="campoSenha" style="margin-top: 10px;">Senha: </label>
+     <input type="text" name = "campoSenha" id = "campoSenha" class = "card-text form-control"  value=" <%=sessao.password%>" style="font-size: 20px; font-family: gotham light;" > 
+     <label for="campoID" style="margin-top: 10px;">Nexum ID: </label>
+     <input type="text" name = "campoID" id = "campoID" class = "card-text form-control" disabled value=" <%=sessao.id%>" style="font-size: 20px; font-family: gotham light;" > <br>
+     <a class = "btn btn-dark updateButton" href="/admin/profile" style="color: white;">Voltar</a>
+     <a class = "btn btn-primary updateButton" href="/admin/update" style="color: white;">Salvar</a> 
+ 
+      <a href="/">
+    </a>
+  </div>
+  </div>
 
 <%- include('../partials/footer.ejs'); %>

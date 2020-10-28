@@ -36,7 +36,6 @@ router.post('/authenticate', (req, res) => {
       // Se o usuário não for encontrado
       } else {
           res.render('loginError');
-          console.log('User not found');
       }
 
       }).catch((err) => {

@@ -7,6 +7,7 @@ const adminController = require('./Controllers/adminController');
 const jobController = require('./Controllers/jobController');
 const educationController = require('./Controllers/educationController');
 const homeController = require('./Controllers/homeController');
+const chartController = require('./Controllers/chartController');
 const session = require('express-session');
 const Admin = require('./models/Admin');
 const Job = require('./models/Job');
@@ -53,7 +54,7 @@ app.use('/', adminController);
 app.use('/', jobController);
 app.use('/', educationController);
 app.use('/', homeController);
-
+app.use('/', chartController);
 
 // Server listener ------------------------------
 

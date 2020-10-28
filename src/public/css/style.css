@@ -141,3 +141,6 @@ text-align: center;
     color: white;
 }
 
+.updateButton {
+  width: 210px;
+}

@@ -1,15 +1,16 @@
 {
-  "name": "src",
+  "name": "nexumsystem",
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
   "scripts": {
     "start": "node src/app"
   },
-  "author": "",
+  "author": "Victor Atavila",
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^5.0.0",
+    "chart.js": "^2.9.4",
     "ejs": "^3.1.3",
     "express": "^4.17.1",
     "express-session": "^1.17.1",

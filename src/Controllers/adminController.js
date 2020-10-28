@@ -38,10 +38,10 @@ router.post('/create/admin', (req, res) => {
 
 // Update admin profile form  -------------------------------------------
 
-router.get('/admin/update/form', adminAuth, (req, res) => {
-    var sessao = req.session.admin
-    res.render('editAdminForm', {sessao});
-})
+// router.get('/admin/update/form', adminAuth, (req, res) => {
+//     var sessao = req.session.admin
+//     res.render('updateAdminForm', {sessao});
+// })
 
 // Update admin profile data  -------------------------------------------
 
@@ -50,7 +50,6 @@ router.post('/admin/update', (req, res) => {
     var email = req.body.email;
     var newFirstName = req.body.newFirstName;
     var newLastName = req.body.newLastName;
-    var gender = req.body.gender;
     var newPassword = req.body.newPassword;
 
 
@@ -66,10 +65,7 @@ router.post('/admin/update', (req, res) => {
             email: email
         }
     }).then(() => {
-        console.log(newFirstName, newLastName, newPassword, email)
         res.redirect('/admin/profile')
-        console.log(req.body);
-        res.json({result: 'Admin register successfully updated'});
     }).catch(() => {
         console.log(newFirstName, newLastName, newPassword, email)
         res.json({result: 'Admin register was not updated'});

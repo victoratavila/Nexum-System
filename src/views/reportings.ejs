@@ -1,0 +1,35 @@
+<%- include('../partials/header.ejs'); %>
+<%- include('../partials/navbar.ejs'); %>
+
+<body style="font-family: Roboto;" >
+
+    <div class="container"> <br> <br>
+        <h1>Relatórios</h1>
+        <h5 style="font-family: Roboto light">Relação entre imigrantes e seus dados.</h5> <br> 
+
+        <table class="table table-bordered table-hover" style="text-align: center;">
+            <thead>
+              <tr class = "table-success">
+                <th scope="col">Média da idade geral</th>
+                <th scope="col">Imigrantes cadastrados</th>
+                <th scope="col">Homens cadastrados</th>
+                <th scope="col">Mulheres cadastradas</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="font-family: Gotham light">
+                <td> <%= ageAverage %> anos </td>
+                <td> <%= tamanho %> </td>
+                <td> <%= maleFound %> </td>
+                <td> <%= femaleFound %> </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h6 style="text-align: right;">Atualizado em: <% data = new Date(); %> <%= data.getDate(); %>/<%= data.getMonth();%>/<%= data.getFullYear(); %> (<%= data.getHours()%>:<%= data.getMinutes() %>)</h6>
+    </div>
+
+    
+</body>
+
+<%- include('../partials/footer.ejs'); %>
