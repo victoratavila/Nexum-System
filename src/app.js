@@ -44,6 +44,8 @@ app.use(session({
     cookie: {
        maxAge: 3600000
     },
+    saveUninitialized: true,
+    resave: true
 }))
 
 // Setting routes -------------------------------

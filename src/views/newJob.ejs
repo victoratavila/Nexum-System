@@ -1,0 +1,48 @@
+<%- include('../partials/header.ejs'); %>
+<%- include('../partials/navbar.ejs'); %>
+
+<br>
+<body style="font-family: gotham;">
+
+<div class = "container">
+
+
+<div class="form-inline" style="display: block;">
+
+</div> <br> <br>
+
+<h1> Cadastrar novo emprego </h1> <br>
+
+<form action="" class = "form-group" style="width: 100%; font-family: Roboto 400">
+<input type="text" name="company" id="company" style="font-family: 'Roboto'; font-weight: 500;" required placeholder="Nome da empresa" class = "form-control">
+<input type="text" name="role" id="role" style="font-family: 'Roboto'; font-weight: 500; margin-top: 15px" required placeholder="Cargo" class = "form-control"> 
+
+<select class="form-control" id="level" name = "level" required style="font-family: 'Roboto'; font-weight: 500; margin-top: 15px">
+    <option>Selecione o nível do cargo</option>
+    <option>Jovem aprendiz</option>
+    <option>Estágio</option>
+    <option>Junior</option>
+    <option>Pleno</option>
+    <option>Sênior</option>
+  </select>
+
+  <div class="form-inline" style="margin-top: 15px">
+    <input type="text" name="city" id="city" required style="font-family: 'Roboto'; font-weight: 500;" required placeholder="Cidade" class = "form-control">
+    <input type="text" name="state" id="state" required style="font-family: 'Roboto'; font-weight: 500; margin-left: 10px" required placeholder="Estado" class = "form-control"> 
+    <input type="text" name="country" id="country" required style="font-family: 'Roboto'; font-weight: 500; margin-left: 10px" required placeholder="País" class = "form-control">
+</div> <br>
+
+<div class="display: block">
+<button type="submit" class="btn btn-primary" style="margin-top: 15px; float: right;"> Cadastrar </button>
+</div>
+</form> 
+
+ <a href="/job/opportunity">
+    <svg width="3em" height="3em" viewBox="0 0 16 16" class="bi bi-arrow-left-square-fill" fill="green" xmlns="http://www.w3.org/2000/svg">
+    <path fill-rule="evenodd" d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.354 10.646a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L6.207 7.5H11a.5.5 0 0 1 0 1H6.207l2.147 2.146z"/>
+    </svg>
+</a> 
+
+</div>
+</body>
+<%- include('../partials/footer.ejs'); %>

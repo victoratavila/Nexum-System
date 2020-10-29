@@ -133,4 +133,12 @@ router.get('/job/compatibility/:vacancyID', adminAuth, (req, res) => {
 })
 
 
+// New job frontend
+
+router.get('/job', adminAuth, (req, res) => {
+    var sessao = req.session.admin;
+    res.render('newJob', { sessao });
+})
+
+
 module.exports = router;
