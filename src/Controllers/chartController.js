@@ -23,9 +23,17 @@ router.get('/relatorios', adminAuth, (req, res) => {
                     sum += age[i].age;
                 }
             }
+
+            var criancas = 0;
+
+            for(var i = 0; i < totalAges; i++){
+               if( age[i].age < 12 ) {
+                   criancas += 1;
+               } 
+            }
     
             var ageAverage = sum/totalAges;
-    
+     ;
             // Média de idade dos imigrantes
             ageAverage = parseInt(ageAverage);
             // console.log('A média é ' + ageAverage + ' anos');
@@ -49,11 +57,6 @@ router.get('/relatorios', adminAuth, (req, res) => {
            
            }
 
-        //    // Quantidade de mulheres imigrantes
-        //    console.log('Mulheres: ' + femaleFound);
-        //    // Quantidade de homens imigrantes
-        //    console.log('Homens: ' + maleFound);
-
            let moreMan;
            let moreWomen;
            let theSame;
@@ -66,16 +69,8 @@ router.get('/relatorios', adminAuth, (req, res) => {
                theSame = true;
            }
 
-           // if(maleFound = true){
-           //     console.log('Existem mais homens cadastrados');
-           // } else if(moreWomen = true){
-           //     console.log('Existem mais mulheres cadastradas');
-           // } else if(theSame = true){
-           //     console.log('Existe a mesma quantidade de homens e de mulheres');
-           // }
-
             res.render('reportings', { 
-                sessao: req.session.admin, moment, ageAverage, maleFound, femaleFound, tamanho
+                sessao: req.session.admin, moment, ageAverage, maleFound, femaleFound, tamanho, criancas
             });
 
            }).catch((err) => {
