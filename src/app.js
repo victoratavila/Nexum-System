@@ -14,6 +14,7 @@ const Job = require('./models/Job');
 const Education = require('./models/Education');
 const Home = require('./models/Home');
 const path = require('path');
+const cors = require('cors');
 
 // Authenticating database connection  ----------
 
@@ -22,6 +23,10 @@ connection.authenticate().then( () => {
 }).catch( () => {
     console.log('Not connected to database');
 })
+
+// Setting cors --------------------------------
+
+app.use(cors());
 
 // Setting view engine --------------------------
 

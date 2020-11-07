@@ -140,5 +140,16 @@ router.get('/job', adminAuth, (req, res) => {
     res.render('newJob', { sessao });
 })
 
+router.post('/job', adminAuth, (req, res) => {
+    
+    const { company, role, level, city, state, country } = req.body;
+
+    Job.create({ company, role, level, city, state, country}).then(() => {
+        res.redirect('/job/opportunity');
+    }).catch((err) => {
+        console.log(err);
+    })
+})
+
 
 module.exports = router;
