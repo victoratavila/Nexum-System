@@ -15,6 +15,7 @@ const Education = require('./models/Education');
 const Home = require('./models/Home');
 const path = require('path');
 const cors = require('cors');
+const helperController = require('./Controllers/helperController');
 
 // Authenticating database connection  ----------
 
@@ -62,6 +63,7 @@ app.use('/', jobController);
 app.use('/', educationController);
 app.use('/', homeController);
 app.use('/', chartController);
+app.use('/', helperController);
 
 // Server listener ------------------------------
 
