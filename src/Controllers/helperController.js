@@ -1,6 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const Helper = require('../models/Helper');
+const moment = require('moment');
+const adminAuth = require('../middlewares/adminAuth');
 
 router.get('/helper', (req, res) => {
     Helper.findAll().then(helper => {
@@ -13,7 +15,7 @@ router.get('/helper', (req, res) => {
 
 router.post('/helper', (req, res) => {
 
-    const data = { firstName, lastName, email, currentCountry, currentCity, 
+    const data = { firstName, lastName, email, currentCountry, currentCity, state,
     businessman, jobHelp, habitationHelp, studyingHelp, helpDescription } = req.body;
 
     // Verificar o email do helper já existe
@@ -46,6 +48,43 @@ router.delete('/helper/:id', (req, res) => {
 
             Helper.destroy({where: { id: id }}).then( () => {
                 res.json({result: `The helper ${helper.firstName} was successfully deleted`});
+            }).catch(err => {
+                console.log(err);
+            })
+
+        } else {
+            res.status(400).json({error: 'There is not an helper with this id'});
+        }
+
+    }).catch((err) => {
+        console.log(err);
+    })
+})
+
+
+// Frontend routes
+
+
+router.get('/helpers', (req, res) => {
+    const sessao = req.session.admin;
+
+    Helper.findAll().then(helpers => {
+        res.render('helperList', {sessao, moment, helpers})
+    }).catch(err => {
+        console.log(err);
+    })
+
+})
+
+router.delete('/helper/delete/:id', (req, res) => {
+    const { id } = req.params;
+
+    Helper.findOne( {where: { id: id } }).then( helper => {
+
+        if(helper != undefined && helper != null && helper != ''){
+
+            Helper.destroy({where: { id: id }}).then( () => {
+                res.redirect('/helpers')
             }).catch(err => {
                 console.log(err);
             })

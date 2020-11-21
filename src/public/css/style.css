@@ -21,12 +21,12 @@ text-align: center;
 }
 
 #userLogged {
-    margin-left: 740px;
+    margin-left: 720px;
 }
 
 #mainBG {
     background-color: chartreuse;
-    height: 600px;
+    height: 630px;
     width: 1100px;
     transform: skew(-15deg); /* Padrão */
     margin-left: -450px;
@@ -143,4 +143,46 @@ text-align: center;
 
 .updateButton {
   width: 210px;
+}
+
+.greenBoard {
+    background-color: rgb(12, 151, 12);
+    height: 170px;
+    color: white;
+}
+
+.greenBoard h1 {
+    margin-left: 160px;
+    font-family: Gotham;
+    font-weight: 350;
+}
+
+.infoBoard {
+    background-color: white;
+    height: 270px;
+}
+
+.infoBoard h3 {
+    margin-left: 30px;
+}
+
+.infoBoard h4 {
+    margin-left: 30px;
+    font-weight: 300;
+    font-size: 20px;
+}
+
+.infoBoard i {
+    font-style: normal;
+    font-weight: bold;
+}
+
+#infoHelper {
+    font-style: normal;
+    color: green;
+}
+
+#removeBtn {
+    margin-left: 30px;
+    margin-top: 20px;
 }

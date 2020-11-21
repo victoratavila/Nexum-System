@@ -1,0 +1,46 @@
+<%- include('../partials/header.ejs'); %>
+<%- include('../partials/navbar.ejs'); %>
+
+<body style="font-family: gotham; background-color: #f5f5f5;">
+
+    <div class = "greenBoard"> <br> <br>
+        <h1>Helpers cadastrados</h1>
+    </div> <br>
+    
+<div class="container">
+
+<% helpers.forEach(helper => { %> 
+    <div class="infoBoard"> <br>
+        <h3><%= helper.firstName %> <%= helper.lastName %></h3>
+        <h4><%= helper.currentCity %> - <%= helper.currentCountry %> </h4>
+        <h4><%= helper.email %></h4>
+
+        <% if(helper.studyingHelp != false ){ %>
+           <% helper.studyingHelp = "Estudo" %>
+        <% } else { %>
+            <% helper.studyingHelp = "" %>
+         <% } %>
+
+        <% if(helper.jobHelp != false ){ %>
+            <% helper.jobHelp = "Emprego" %>
+         <% } else { %>
+            <% helper.jobHelp = "" %>
+         <% } %>
+
+         <% if(helper.habitationHelp != false ){ %>
+            <% helper.habitationHelp = "Moradia" %>
+         <% } else { %>
+            <% helper.habitationHelp = "" %>
+         <% } %>
+
+        <h4>Ajuda com: <i id = "infoHelper"><%= helper.studyingHelp %> <%= helper.jobHelp %> <%= helper.habitationHelp %></i> </h4>
+        <h4> <i>"</i><%= helper.helpDescription %><i>"</i> </h4>
+
+        <button class = "btn btn-outline-success" id = "removeBtn">ID: <%= helper.id %> </button>
+    </div> <br>
+<% }) %> 
+
+</div>
+</body>
+
+<%- include('../partials/footer.ejs'); %>
