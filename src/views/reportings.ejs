@@ -28,21 +28,47 @@
             </tbody>
           </table>
 
-          <div class="form-inline" style="display: block;">
+         <br> 
+
+         <!-- Helpers table -->
+         <h5 style="font-family: Roboto light">Relação entre helpers (ajudadores) e seus dados.</h5>
+
+         <table class="table table-bordered table-hover" style="text-align: center;">
+          <thead>
+            <tr class = "table-success">
+              <th scope="col">Ajudadores cadastrados</th>
+              <th scope="col">Ajuda com emprego</th>
+              <th scope="col">Ajuda com estudo</th>
+              <th scope="col">Ajuda com moradia</th>
+              <th scope="col">Menores de idade</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="font-family: Gotham light">
+              <td> <% %> </td>
+              <td> <%= tamanho %> </td>
+              <td> <%= maleFound %> </td>
+              <td> <%= femaleFound %> </td>
+              <td> <%= criancas %> </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="form-inline" style="display: block;">
           <h6 style="text-align: right; float: right;">Atualizado em: <%= moment().format('DD/MM/YYYY') %></h6>
     
-          <input class="btn btn-primary" type="button" name="imprimir" value="Imprimir" onclick="window.print();">
-          <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModalCenter">
-            Saiba mais  <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-info-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-              <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-              <path d="M8.93 6.588l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588z"/>
-              <circle cx="8" cy="4.5" r="1"/>
-            </svg>
-          </button>
-         </div> <br>
+         </div>
+        
+        <input class="btn btn-primary" type="button" name="imprimir" value="Imprimir" onclick="window.print();">
+        <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModalCenter">
+          Saiba mais  <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-info-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+            <path d="M8.93 6.588l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588z"/>
+            <circle cx="8" cy="4.5" r="1"/>
+          </svg>
+        </button>
 
-      
-
+        
          </div>
 
 
@@ -72,6 +98,19 @@
   </div>
 </div>
     
+<script>
+
+    axios({
+    method: 'get',
+    url: 'http://localhost:3000/helper/reports',
+    responseType: 'json'
+  }).then( (helperData) => {
+    console.log(helperData.data);
+  });
+
+
+
+</script>
 </body>
 
 

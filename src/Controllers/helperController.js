@@ -65,7 +65,7 @@ router.delete('/helper/:id', (req, res) => {
 // Frontend routes
 
 
-router.get('/helpers', (req, res) => {
+router.get('/helpers', adminAuth, (req, res) => {
     const sessao = req.session.admin;
 
     Helper.findAll().then(helpers => {
@@ -76,7 +76,7 @@ router.get('/helpers', (req, res) => {
 
 })
 
-router.delete('/helper/delete/:id', (req, res) => {
+router.delete('/helper/delete/:id', adminAuth, (req, res) => {
     const { id } = req.params;
 
     Helper.findOne( {where: { id: id } }).then( helper => {

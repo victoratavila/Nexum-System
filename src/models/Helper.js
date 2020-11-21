@@ -34,7 +34,7 @@ const Helper = connection.define('helper', {
     
     businessman: {
         type: Sequelize.BOOLEAN,
-        allowNull: false
+        allowNull: true
     },
 
        
