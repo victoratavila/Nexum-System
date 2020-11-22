@@ -117,9 +117,61 @@ router.get('/relatorios', adminAuth, (req, res) => {
          
             helperInfo();
 
-            res.render('reportings', { 
-                sessao: req.session.admin, moment, ageAverage, maleFound, femaleFound, tamanho, criancas
-            });
+            async function helperInfo(){ 
+                await Helper.findAll({
+                    attributes: ['jobHelp', 'studyingHelp', 'habitationHelp']
+                  }).then(helper => {
+            
+                    //   res.json(helper);
+                      helper = JSON.parse(JSON.stringify(helper));
+            
+                      const helperAmount = helper.length;
+                      let jobHelpAmount = 0;
+                      let studyingHelpAmount = 0;
+                      let habitationHelpAmount = 0;
+            
+                      for(i = 0; i < helperAmount; i++){
+                        if(helper[i].jobHelp == true){
+                            jobHelpAmount += 1;
+                        } else {
+                            jobHelpAmount;
+                        }
+                      }
+            
+                      for(i = 0; i < helperAmount; i++){
+                          if(helper[i].studyingHelp == true){
+                              studyingHelpAmount += 1;
+                          } else {
+                              studyingHelpAmount;
+                          }
+                      }
+            
+                      for(i = 0; i < helperAmount; i++){
+                        if(helper[i].habitationHelp == true){
+                            habitationHelpAmount += 1;
+                        } else {
+                            habitationHelpAmount;
+                        }
+                    }
+            
+                     const helperResult = {
+                         "helperAmount": helperAmount,
+                         "jobHelpAmount": jobHelpAmount,
+                         "studyingHelpAmount": studyingHelpAmount,
+                         "habitationHelpAmount": habitationHelpAmount
+                     }
+            
+                      res.render('reportings', { 
+                        sessao: req.session.admin, moment, ageAverage, maleFound, femaleFound, tamanho, criancas,
+                        helperAmount, jobHelpAmount, studyingHelpAmount, habitationHelpAmount
+                    });
+            
+                  }).catch(err => {
+                      console.log(err);
+                  });
+            }
+
+         
 
            }).catch((err) => {
                console.log(err);

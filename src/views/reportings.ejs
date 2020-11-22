@@ -3,13 +3,13 @@
 
 <body style="font-family: Roboto;" >
 
-    <div class="container"> <br> <br>
-        <h1>Relatórios</h1>
-        <h5 style="font-family: Roboto light">Relação entre imigrantes e seus dados.</h5> <br> 
+    <div class="container"> <br> <br> 
+        <h1>Relatórios</h1> <hr> <br>
+        <h5 style="font-family: Roboto light">Relação entre imigrantes e seus dados.</h5> 
 
         <table class="table table-bordered table-hover" style="text-align: center;">
             <thead>
-              <tr class = "table-success">
+              <tr class = "table" style="background-color: rgba(8, 209, 98, 0.979);">
                 <th scope="col">Média da idade geral</th>
                 <th scope="col">Imigrantes cadastrados</th>
                 <th scope="col">Sexo masculino</th>
@@ -35,21 +35,19 @@
 
          <table class="table table-bordered table-hover" style="text-align: center;">
           <thead>
-            <tr class = "table-success">
+            <tr class = "table" style="background-color: rgba(8, 209, 98, 0.979);">
               <th scope="col">Ajudadores cadastrados</th>
               <th scope="col">Ajuda com emprego</th>
               <th scope="col">Ajuda com estudo</th>
               <th scope="col">Ajuda com moradia</th>
-              <th scope="col">Menores de idade</th>
             </tr>
           </thead>
           <tbody>
             <tr style="font-family: Gotham light">
-              <td> <% %> </td>
-              <td> <%= tamanho %> </td>
-              <td> <%= maleFound %> </td>
-              <td> <%= femaleFound %> </td>
-              <td> <%= criancas %> </td>
+              <td> <%= helperAmount %> </td>
+              <td> <%= jobHelpAmount %> </td>
+              <td> <%= studyingHelpAmount %> </td>
+              <td> <%= habitationHelpAmount %> </td>
             </tr>
           </tbody>
         </table>
@@ -86,8 +84,10 @@
       </div>
       <div class="modal-body">
 
-          <p> Essa tabela se refere aos imigrantes atualmente cadastrados no <i style="font-style: normal; font-weight: bold;">Nexum</i>
-           bem como suas informações: a média da idade geral, a quantidade de imigrantes do sexo masculino e feminino e, dentre eles, quantos são menores de idade.
+          <p> Esse relatório se refere aos imigrantes atualmente cadastrados no <i style="font-style: normal; font-weight: bold;">Nexum</i>
+           bem como suas informações: a média da idade geral, a quantidade de imigrantes do sexo masculino e feminino e, dentre eles, quantos
+           são menores de idade. Esse relatório também envolve os dados dos ajudadores tais como: a quantidade de registros, quantos ajudam com emprego, moradia
+           e/ou habitação.
          </p>
 
       </div>
@@ -98,21 +98,21 @@
   </div>
 </div>
     
-<script>
 
-    axios({
-    method: 'get',
-    url: 'http://localhost:3000/helper/reports',
-    responseType: 'json'
-  }).then( (helperData) => {
-    console.log(helperData.data);
-  });
-
-
-
-</script>
 </body>
 
+<!-- 
+<script>
+
+  axios({
+  method: 'get',
+  url: 'http://localhost:3000/helper/reports',
+  responseType: 'json'
+}).then( (helperData) => {
+  console.log(helperData.data.helperAmount);
+});
+
+</script> -->
 
 
 <%- include('../partials/footer.ejs'); %>

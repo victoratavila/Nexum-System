@@ -39,6 +39,26 @@ router.post('/helper', (req, res) => {
 
 })
 
+// Search helper by email
+
+router.get('/helper/:email', async (req, res) => {
+    const { email } = req.params;
+
+    await Helper.findOne({ where: {
+        email: email
+    }}).then(result => {
+
+       if(result == null || result == ""){
+           res.json(false);
+       } else {
+           res.json(true);
+       }
+
+    }).catch(err => {
+        console.log(err);
+    })
+})
+
 router.delete('/helper/:id', (req, res) => {
     const { id } = req.params;
 
