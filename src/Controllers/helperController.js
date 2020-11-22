@@ -96,7 +96,7 @@ router.get('/helpers', adminAuth, (req, res) => {
 
 })
 
-router.delete('/helper/delete/:id', adminAuth, (req, res) => {
+router.get('/helper/delete/:id', adminAuth, (req, res) => {
     const { id } = req.params;
 
     Helper.findOne( {where: { id: id } }).then( helper => {
