@@ -109,10 +109,6 @@ router.get('/relatorios', adminAuth, (req, res) => {
                     }
                 }
         
-                  console.log(`Ajudas com emprego: ${jobHelpAmount}`);
-                  console.log(`Ajudas com estudo: ${studyingHelpAmount}`);
-                  console.log(`Ajudas com moradia: ${habitationHelpAmount}`);
-        
               }).catch(err => {
                   console.log(err);
               });
