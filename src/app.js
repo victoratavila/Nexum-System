@@ -8,6 +8,8 @@ const jobController = require('./Controllers/jobController');
 const educationController = require('./Controllers/educationController');
 const homeController = require('./Controllers/homeController');
 const chartController = require('./Controllers/chartController');
+const helperController = require('./Controllers/helperController');
+const qrcodeController = require('./Controllers/qrcodeController');
 const session = require('express-session');
 const Admin = require('./models/Admin');
 const Job = require('./models/Job');
@@ -15,7 +17,7 @@ const Education = require('./models/Education');
 const Home = require('./models/Home');
 const path = require('path');
 const cors = require('cors');
-const helperController = require('./Controllers/helperController');
+
 
 // Authenticating database connection  ----------
 
@@ -64,6 +66,7 @@ app.use('/', educationController);
 app.use('/', homeController);
 app.use('/', chartController);
 app.use('/', helperController);
+app.use('/', qrcodeController);
 
 // Server listener ------------------------------
 

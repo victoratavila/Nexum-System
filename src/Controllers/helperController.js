@@ -88,7 +88,11 @@ router.delete('/helper/:id', (req, res) => {
 router.get('/helpers', adminAuth, (req, res) => {
     const sessao = req.session.admin;
 
-    Helper.findAll().then(helpers => {
+    Helper.findAll({ 
+        order: [
+            ['id', 'DESC']
+        ]
+    }).then(helpers => {
         res.render('helperList', {sessao, moment, helpers})
     }).catch(err => {
         console.log(err);

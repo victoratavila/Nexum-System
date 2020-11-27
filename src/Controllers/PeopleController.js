@@ -102,6 +102,8 @@ var gender = req.body.gender;
 var country = req.body.country;
 var maritalStatus = req.body.maritalStatus;
 
+console.log(firstName)
+
 People.findAll({
 where: {
     firstName: firstName,
