@@ -1,4 +1,5 @@
 <%- include('../partials/header.ejs'); %>
+<%- include('../partials/navbar.ejs'); %>
 
 <body style="font-family: gotham;">
     
@@ -396,7 +397,7 @@
 <label for="id" style="font-size: 20px; margin-left: 350px;">ID:</label>
 <input class = "form-control" value = "<%= person.id %>" disabled type="text" name="id" id="id" style="width: 400px; margin-left: 350px; font-size: 20px; margin-bottom: 15px;" >
 
-<label for="maritalStatus" style="font-size: 20px; margin-left: 350px;">Marital status:</label>
+<label for="maritalStatus" style="font-size: 20px; margin-left: 350px;">Estado civíl:</label>
 <select class="form-control" required name = "maritalStatus" id="maritalStatus" style="width: 400px; margin-left: 350px; font-size: 20px; margin-bottom: 15px;"> 
   <option disabled selected></option>
   <option>Casado(a)</option>
@@ -404,7 +405,7 @@
   <option>Viúvo(a)</option>
 </select>
 
-<label for="gender" style="font-size: 20px; margin-left: 350px;">Gender:</label>
+<label for="gender" style="font-size: 20px; margin-left: 350px;">Gênero:</label>
 <select class="form-control" required name = "gender" id="gender" style="width: 400px; margin-left: 350px; font-size: 20px; margin-bottom: 15px;"> 
   <option disabled selected></option>
   <option>Masculino </option>
