@@ -1,15 +1,16 @@
 <%- include('../partials/header.ejs'); %>
 <%- include('../partials/navbar.ejs'); %>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js" integrity="sha512-d9xgZrVZpmmQlfonhQUvTR7lMPtO7NkZMkA0ABN3PHCbKA5nqylQ/yWlFAyY6hYgdF1Qh6nYiuADWwKB4C2WSw==" crossorigin="anonymous"></script>
 <body style="font-family: Roboto;" >
 
     <div class="container"> <br> <br> 
         <h1>Relatórios</h1> <hr> <br>
         <h5 style="font-family: Roboto light">Relação entre imigrantes e seus dados.</h5> 
 
-        <table class="table table-bordered table-hover" style="text-align: center;">
+        <table class="table table-bordered table-hover" id = "peopleTable" style="text-align: center;">
             <thead>
-              <tr class = "table" style="background-color: rgba(8, 209, 98, 0.979);">
+              <tr class = "table" style="background-color:rgba(10, 241, 106, 0.507);">
                 <th scope="col">Média da idade geral</th>
                 <th scope="col">Imigrantes cadastrados</th>
                 <th scope="col">Sexo masculino</th>
@@ -19,11 +20,11 @@
             </thead>
             <tbody>
               <tr style="font-family: Gotham light">
-                <td> <%= ageAverage %> anos </td>
-                <td> <%= tamanho %> </td>
-                <td> <%= maleFound %> </td>
-                <td> <%= femaleFound %> </td>
-                <td> <%= criancas %> </td>
+                <td id = "mediaIdade"> <%= ageAverage %> anos </td>
+                <td id = "cadastrados"> <%= tamanho %> </td>
+                <td id = "male"> <%= maleFound %> </td>
+                <td id = "female"> <%= femaleFound %> </td>
+                <td id = "kids"> <%= criancas %> </td>
               </tr>
             </tbody>
           </table>
@@ -33,9 +34,9 @@
          <!-- Helpers table -->
          <h5 style="font-family: Roboto light">Relação entre helpers (ajudadores) e seus dados.</h5>
 
-         <table class="table table-bordered table-hover" style="text-align: center;">
+         <table class="table table-bordered table-hover"  style="text-align: center;">
           <thead>
-            <tr class = "table" style="background-color: rgba(8, 209, 98, 0.979);">
+            <tr class = "table" style="background-color:rgba(10, 241, 106, 0.507);">
               <th scope="col">Ajudadores cadastrados</th>
               <th scope="col">Ajuda com emprego</th>
               <th scope="col">Ajuda com estudo</th>
@@ -54,22 +55,54 @@
 
         <div class="form-inline" style="display: block;">
           <h6 style="text-align: right; float: right;">Atualizado em: <%= moment().format('DD/MM/YYYY') %></h6>
-    
-         </div>
-        
-        <input class="btn btn-primary" type="button" name="imprimir" value="Imprimir" onclick="window.print();">
-        <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModalCenter">
-          Saiba mais  <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-info-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-            <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-            <path d="M8.93 6.588l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588z"/>
-            <circle cx="8" cy="4.5" r="1"/>
-          </svg>
-        </button>
 
-        
-         </div>
+<div class = 'container'> <br> <br> 
+        <h1> Gráficos </h1> <br>
+        <!-- Chart -->
+        <canvas id="myChart" width="400" height="150"></canvas>
 
+        <script>
 
+          var mediaIdade = $("#peopleTable #mediaIdade").text();
+          mediaIdade = mediaIdade.split(' ');
+          const cadastrados = $("#peopleTable #cadastrados").text();
+          const masculino = $("#peopleTable #male").text();
+          const feminino = $("#peopleTable #female").text();
+          const kids = $("#peopleTable #kids").text();
+
+          const ctx = document.getElementById('myChart').getContext('2d');
+          
+          const chartGraph = new Chart(ctx, {
+            type: 'bar',
+            data: {
+              labels: ["Média da idade geral","Imigrantes cadastrados", "Sexo masculino", "Sexo feminino", "Menores de idade"],
+              datasets: [
+                {
+                label: "Dados imigrantes",
+                data: [mediaIdade[1], cadastrados, masculino, feminino, kids],
+                borderWidth: 1,
+                backgroundColor: [
+                'rgba(153, 102, 255)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(54, 162, 235)',
+                'rgba(255, 99, 132, 1)',
+                ]
+              }
+            ]
+            }
+          })
+        </script> <br>
+
+<input class="btn btn-primary" type="button" name="imprimir" value="Imprimir" onclick="window.print();">
+<button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModalCenter">
+  Saiba mais  <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-info-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+    <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+    <path d="M8.93 6.588l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588z"/>
+    <circle cx="8" cy="4.5" r="1"/>
+  </svg>
+</button> <br> <br>
+
+</div>
 
 
 <!-- Modal -->
